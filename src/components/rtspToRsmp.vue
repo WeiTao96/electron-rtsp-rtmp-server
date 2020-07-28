@@ -1,0 +1,98 @@
+<template>
+  <div>
+    <div v-if="!isOnWork" class="input-form">
+      <el-input class="item" v-model="inputPath" placeholder="请输入 RTSP 流"></el-input>
+      <el-input class="item" v-model="outputPath" placeholder="请输入内容"></el-input>
+      <el-button class="item" @click="handleSend">转换</el-button>
+    </div>
+    <div class="info-box" v-else>
+      <el-row :gutter="20">
+        <el-col :span="10">
+          <div>
+            <p>rtmp 流地址：{{outputPath}}</p>
+          </div>
+        </el-col>
+        <el-col :span="10">
+          <div>
+            <p> flv 流地址：{{flvOutputPath}}</p>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+    <div class="output-box">
+      <p v-for="(item,index) in messages" :key="index" :class="item.type">{{item.message}}</p>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
+import { ipcRenderer } from "electron";
+
+interface Message {
+  from: string;
+  type: string;
+  message: string;
+}
+
+@Component
+export default class HelloWorld extends Vue {
+  private inputPath = "";
+  private outputPath = "rtmp://(服务器所在IP)/live/(直播流名字)";
+  private flvOutputPath = "";
+  private isOnWork = false;
+  private messages: Message[] = [];
+
+  private handleSend() {
+    ipcRenderer.send("asynchronous-message", [this.inputPath, this.outputPath]);
+
+    this.isOnWork = true;
+
+    this.flvOutputPath = this.outputPath.replace('rtmp','http') + '.flv'
+
+    // receive message from main.js
+    ipcRenderer.on("asynchronous-reply", (event, arg: Message) => {
+      if (arg.from === this.inputPath) {
+        this.messages.push(arg);
+      }
+      if (arg.from === this.inputPath && arg.type === "error") {
+        this.isOnWork = false;
+      }
+    });
+  }
+}
+</script>
+<style scoped>
+.input-form .item {
+  margin: 5px;
+}
+
+.info-box {
+  height: 150px;
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid #ebeef5;
+}
+
+.output-box {
+  height: 280px;
+  overflow: auto;
+  padding: 5px;
+  border: 1px solid #ebeef5;
+}
+
+.output-box span {
+  color: #606266;
+}
+
+.output-box p {
+  margin: 3px;
+  text-align: left;
+}
+.success {
+  color: #303133;
+}
+.error {
+  color: #f56c6c;
+}
+</style>

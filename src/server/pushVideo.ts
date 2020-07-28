@@ -32,7 +32,9 @@ export function start() {
         }
 
         if (!option.inputPath || !option.outputPath) {
-            event.sender.send('asynchronous-reply', '数据不完整');
+            // event.sender.send('asynchronous-reply', '数据不完整');
+            event.sender.send('asynchronous-reply', { from:option.inputPath,type:'error',message:'数据不完整' });
+
         } else {
             startPushVideo(option, event)
         }
@@ -42,7 +44,6 @@ export function start() {
 }
 
 function startPushVideo(option: option, event: Electron.IpcMainEvent) {
-    event.sender.send('asynchronous-reply', option);
 
     //设置输入流地址
     let ffCommand = ffmpeg(option.inputPath)
@@ -65,18 +66,29 @@ function startPushVideo(option: option, event: Electron.IpcMainEvent) {
         //commandLine 为实际上调用的命令行命令,拼接逻辑为
         //您的ffmpeg所在路径 -i inputOptions 您的拉流协议和路径 outputOptions 推送流协议和地址
         //ffmpeg -i "rtsp://yourPullUrl" -f flv -r 25 -s 640x480 -an "rtmp://yourPushUrl"
-        event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Vedio is Pushing !');
-        event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Spawned Ffmpeg with command !');
-        event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Command: ' + commandLine);
+        // { from:option.inputPath,type:success,message:'' }
+        event.sender.send('asynchronous-reply', { from:option.inputPath,type:'success',message:'[' + getDateTime() + '] Vedio is Pushing !' });
+        event.sender.send('asynchronous-reply', { from:option.inputPath,type:'success',message:'[' + getDateTime() + '] Spawned Ffmpeg with command !' });
+        event.sender.send('asynchronous-reply', { from:option.inputPath,type:'success',message:'[' + getDateTime() + '] Command: ' + commandLine });
+
+        // event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Vedio is Pushing !');
+        // event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Spawned Ffmpeg with command !');
+        // event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Command: ' + commandLine);
 
     })
         .on('error', function (err, stdout, stderr) {
-            event.sender.send('asynchronous-reply', 'error: ' + err.message);
-            event.sender.send('asynchronous-reply', 'stdout: ' + stdout);
-            event.sender.send('asynchronous-reply', 'stderr: ' + stderr);
+            event.sender.send('asynchronous-reply', { from:option.inputPath,type:'error',message:'error: ' + err.message });
+            event.sender.send('asynchronous-reply', { from:option.inputPath,type:'error',message:'stdout: ' + stdout });
+            event.sender.send('asynchronous-reply', { from:option.inputPath,type:'error',message:'stderr: ' + stderr });
+
+            // event.sender.send('asynchronous-reply', 'error: ' + err.message);
+            // event.sender.send('asynchronous-reply', 'stdout: ' + stdout);
+            // event.sender.send('asynchronous-reply', 'stderr: ' + stderr);
         })
         .on('end', function () {
-            event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Vedio Pushing is Finished !');
+            event.sender.send('asynchronous-reply', { from:option.inputPath,type:'error',message:'[' + getDateTime() + '] Vedio Pushing is Finished !' });
+
+            // event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Vedio Pushing is Finished !');
         })
         .run();
 }
