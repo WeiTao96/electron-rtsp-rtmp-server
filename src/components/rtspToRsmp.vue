@@ -44,17 +44,17 @@ export default class HelloWorld extends Vue {
   private messages: Message[] = [];
 
   private handleSend() {
-    ipcRenderer.send("asynchronous-message", [this.inputPath, this.outputPath]);
+    ipcRenderer.send("rtsp-rtmp-message", [this.inputPath, this.outputPath]);
 
-    this.isOnWork = true;
+    // this.isOnWork = true;
 
     this.flvOutputPath = this.outputPath.replace('rtmp','http') + '.flv'
 
     // receive message from main.js
-    ipcRenderer.on("asynchronous-reply", (event, arg: Message) => {
-      if (arg.from === this.inputPath) {
+    ipcRenderer.on(this.outputPath+'-reply', (event, arg: Message) => {
+      // if (arg.from === this.inputPath) {
         this.messages.push(arg);
-      }
+      // }
       if (arg.from === this.inputPath && arg.type === "error") {
         this.isOnWork = false;
       }

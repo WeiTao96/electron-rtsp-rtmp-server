@@ -5,9 +5,9 @@ import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
-import { start } from "@/server/pushVideo"
 import { nms } from "@/server/mediaServer"
-
+import MyChilds from "./server/addChild"
+let childProcess = new MyChilds()
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win: BrowserWindow | null
@@ -47,6 +47,7 @@ function createWindow() {
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
+  childProcess.endChildProcess()
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
@@ -75,7 +76,7 @@ app.on('ready', async () => {
     }
   }
   nms.run();
-  start();
+  childProcess.startChildProcess()
   createWindow()
 })
 
