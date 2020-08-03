@@ -10,13 +10,16 @@ export default class MyChildProcess {
             let outputPath = arg[1]
 
             if (this.childProcessLst[outputPath] && arg[2]) {
-                this.childProcessLst[outputPath].kill('SIGSTOP')
+                this.childProcessLst[outputPath].kill('SIGKILL')
+                delete this.childProcessLst[outputPath]
             } else if (this.childProcessLst[outputPath] && !arg[2]) {
-                event.sender.send(outputPath, { from: inputPath, type: 'error', message: '输出路径重复' })
+                event.sender.send('asynchronous-reply', { from: inputPath, type: 'error', message: '输出路径重复' })
             } else {
-                let ffmeg =  start(inputPath,outputPath)
-                if(ffmeg){
-                    this.childProcessLst[outputPath] = ffmeg                 
+                let ffmeg = start(inputPath, outputPath,event)
+                if (ffmeg) {
+                    this.childProcessLst[outputPath] = ffmeg
+                }else {
+                    event.sender.send('asynchronous-reply', { from: inputPath, type: 'error', message: '创建失败' })
                 }
             }
 
@@ -27,7 +30,7 @@ export default class MyChildProcess {
         for (const key in this.childProcessLst) {
             if (Object.prototype.hasOwnProperty.call(this.childProcessLst, key)) {
                 const element = this.childProcessLst[key];
-                element.kill('SIGSTOP')
+                element.kill('SIGKILL')
             }
         }
     }

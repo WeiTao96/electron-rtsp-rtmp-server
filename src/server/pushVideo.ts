@@ -16,34 +16,32 @@ export interface option {
     args?: string[]
 }
 
-export function start(inputPath:string,outputPath:string) {
-        let option: option = {
-            inputPath: inputPath,
-            outputPath: outputPath,
-            args:[
-                '-vcodec copy',
-                '-acodec copy',
-                '-rtsp_transport tcp',
-                '-buffer_size 102400',
-                '-c:a aac',
-                '-f flv'
-            ]
-        }
+export function start(inputPath: string, outputPath: string,event: Electron.IpcMainEvent) {
+    let option: option = {
+        inputPath: inputPath,
+        outputPath: outputPath,
+        args: [
+            '-vcodec copy',
+            '-acodec copy',
+            '-rtsp_transport tcp',
+            '-buffer_size 102400',
+            '-c:a aac',
+            '-f flv'
+        ]
+    }
 
-        if (!option.inputPath || !option.outputPath) {
-            // event.sender.send('asynchronous-reply', '数据不完整');
-            ipcRenderer.send(outputPath+'-reply', { from:option.inputPath,type:'error',message:'数据不完整' });
+    if (!option.inputPath || !option.outputPath) {
+        // event.sender.send('asynchronous-reply', '数据不完整');
+        event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'error', message: '数据不完整' });
 
-        } else {
-            return startPushVideo(option)
-        }
+    } else {
+        return startPushVideo(option,event)
+    }
 
-        // send message to index.html
+    // send message to index.html
 }
 
-function startPushVideo(option: option) {
-
-    let replyPath = option.inputPath + '-reply'
+function startPushVideo(option: option,event: Electron.IpcMainEvent) {
 
     //设置输入流地址
     let ffCommand = ffmpeg(option.inputPath)
@@ -56,7 +54,7 @@ function startPushVideo(option: option) {
         .setFfmpegPath(ffmpegPath)
         .setFfprobePath(ffprobePath)
         .setFlvtoolPath(flvtoolPath)
-        //为保证灵活性,非必须参数采用配置文件读取模式
+    //为保证灵活性,非必须参数采用配置文件读取模式
     if (option.args && option.args.length > 0) {
         for (const iterator of option.args) {
             ffCommand.outputOption(iterator);
@@ -67,9 +65,9 @@ function startPushVideo(option: option) {
         //您的ffmpeg所在路径 -i inputOptions 您的拉流协议和路径 outputOptions 推送流协议和地址
         //ffmpeg -i "rtsp://yourPullUrl" -f flv -r 25 -s 640x480 -an "rtmp://yourPushUrl"
         // { from:option.inputPath,type:success,message:'' }
-        ipcRenderer.send(replyPath, { from:option.inputPath,type:'success',message:'[' + getDateTime() + '] Vedio is Pushing !' });
-        ipcRenderer.send(replyPath, { from:option.inputPath,type:'success',message:'[' + getDateTime() + '] Spawned Ffmpeg with command !' });
-        ipcRenderer.send(replyPath, { from:option.inputPath,type:'success',message:'[' + getDateTime() + '] Command: ' + commandLine });
+        event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'success', message: '[' + getDateTime() + '] Vedio is Pushing !' });
+        event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'success', message: '[' + getDateTime() + '] Spawned Ffmpeg with command !' });
+        event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'success', message: '[' + getDateTime() + '] Command: ' + commandLine });
 
         // event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Vedio is Pushing !');
         // event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Spawned Ffmpeg with command !');
@@ -77,16 +75,16 @@ function startPushVideo(option: option) {
 
     })
         .on('error', function (err, stdout, stderr) {
-            ipcRenderer.send(replyPath, { from:option.inputPath,type:'error',message:'error: ' + err.message });
-            ipcRenderer.send(replyPath, { from:option.inputPath,type:'error',message:'stdout: ' + stdout });
-            ipcRenderer.send(replyPath, { from:option.inputPath,type:'error',message:'stderr: ' + stderr });
+            event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'error', message: 'error: ' + err.message });
+            event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'error', message: 'stdout: ' + stdout });
+            event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'error', message: 'stderr: ' + stderr });
 
             // event.sender.send('asynchronous-reply', 'error: ' + err.message);
             // event.sender.send('asynchronous-reply', 'stdout: ' + stdout);
             // event.sender.send('asynchronous-reply', 'stderr: ' + stderr);
         })
         .on('end', function () {
-            ipcRenderer.send(replyPath, { from:option.inputPath,type:'error',message:'[' + getDateTime() + '] Vedio Pushing is Finished !' });
+            event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'error', message: '[' + getDateTime() + '] Vedio Pushing is Finished !' });
 
             // event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Vedio Pushing is Finished !');
         })

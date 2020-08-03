@@ -18,6 +18,7 @@
           </div>
         </el-col>
       </el-row>
+      <el-button class="item" type="danger" @click="handleClose">关闭</el-button>
     </div>
     <div class="output-box">
       <p v-for="(item,index) in messages" :key="index" :class="item.type">{{item.message}}</p>
@@ -46,19 +47,24 @@ export default class HelloWorld extends Vue {
   private handleSend() {
     ipcRenderer.send("rtsp-rtmp-message", [this.inputPath, this.outputPath]);
 
-    // this.isOnWork = true;
+    this.isOnWork = true;
 
-    this.flvOutputPath = this.outputPath.replace('rtmp','http') + '.flv'
+    this.flvOutputPath = this.outputPath.replace('rtmp','http').replace('/live',':8000/live') + '.flv'
 
     // receive message from main.js
-    ipcRenderer.on(this.outputPath+'-reply', (event, arg: Message) => {
-      // if (arg.from === this.inputPath) {
+    ipcRenderer.on('asynchronous-reply', (event, arg: Message) => {
+      if (arg.from === this.inputPath) {
         this.messages.push(arg);
-      // }
+      }
       if (arg.from === this.inputPath && arg.type === "error") {
         this.isOnWork = false;
       }
     });
+  }
+  
+  private handleClose() {
+    ipcRenderer.send("rtsp-rtmp-message", [this.inputPath, this.outputPath,'SIGKILL']);
+    this.isOnWork = false;
   }
 }
 </script>
