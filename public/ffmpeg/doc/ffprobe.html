@@ -10,7 +10,7 @@
 <meta name="description" content="ffprobe Documentation: ">
 <meta name="keywords" content="FFmpeg documentation : ffprobe ">
 <meta name="Generator" content="texi2html 5.0">
-<!-- Created on June 2, 2019 by texi2html 5.0 -->
+<!-- Created on August 12, 2020 by texi2html 5.0 -->
 <!--
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
@@ -228,8 +228,18 @@ for encoders, decoders, demuxers, muxers, filters, etc.
 </p>
 </dd>
 <dt>&lsquo;<samp>filter=<var>filter_name</var></samp>&rsquo;</dt>
-<dd><p>Print detailed information about the filter name <var>filter_name</var>. Use the
+<dd><p>Print detailed information about the filter named <var>filter_name</var>. Use the
 &lsquo;<samp>-filters</samp>&rsquo; option to get a list of all filters.
+</p>
+</dd>
+<dt>&lsquo;<samp>bsf=<var>bitstream_filter_name</var></samp>&rsquo;</dt>
+<dd><p>Print detailed information about the bitstream filter named <var>bitstream_filter_name</var>.
+Use the &lsquo;<samp>-bsfs</samp>&rsquo; option to get a list of all bitstream filters.
+</p>
+</dd>
+<dt>&lsquo;<samp>protocol=<var>protocol_name</var></samp>&rsquo;</dt>
+<dd><p>Print detailed information about the protocol named <var>protocol_name</var>.
+Use the &lsquo;<samp>-protocols</samp>&rsquo; option to get a list of all protocols.
 </p></dd>
 </dl>
 
@@ -382,14 +392,12 @@ state of <code>level</code> prefix flag or <var>loglevel</var>:
 <p>By default the program logs to stderr. If coloring is supported by the
 terminal, colors are used to mark errors and warnings. Log coloring
 can be disabled setting the environment variable
-<code>AV_LOG_FORCE_NOCOLOR</code> or <code>NO_COLOR</code>, or can be forced setting
+<code>AV_LOG_FORCE_NOCOLOR</code>, or can be forced setting
 the environment variable <code>AV_LOG_FORCE_COLOR</code>.
-The use of the environment variable <code>NO_COLOR</code> is deprecated and
-will be dropped in a future FFmpeg version.
 </p>
 </dd>
 <dt>&lsquo;<samp>-report</samp>&rsquo;</dt>
-<dd><p>Dump full command line and console output to a file named
+<dd><p>Dump full command line and log output to a file named
 <code><var>program</var>-<var>YYYYMMDD</var>-<var>HHMMSS</var>.log</code> in the current
 directory.
 This file can be useful for bug reports.

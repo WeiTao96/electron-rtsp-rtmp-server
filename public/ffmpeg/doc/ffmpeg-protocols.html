@@ -10,7 +10,7 @@
 <meta name="description" content="FFmpeg Protocols Documentation: ">
 <meta name="keywords" content="FFmpeg documentation : FFmpeg Protocols ">
 <meta name="Generator" content="texi2html 5.0">
-<!-- Created on June 2, 2019 by texi2html 5.0 -->
+<!-- Created on August 12, 2020 by texi2html 5.0 -->
 <!--
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
@@ -40,57 +40,59 @@ Send bugs and suggestions to <texi2html-bug@nongnu.org>
   <li><a name="toc-Protocol-Options" href="#Protocol-Options">2 Protocol Options</a></li>
   <li><a name="toc-Protocols" href="#Protocols">3 Protocols</a>
   <ul class="no-bullet">
-    <li><a name="toc-async" href="#async">3.1 async</a></li>
-    <li><a name="toc-bluray" href="#bluray">3.2 bluray</a></li>
-    <li><a name="toc-cache" href="#cache">3.3 cache</a></li>
-    <li><a name="toc-concat" href="#concat">3.4 concat</a></li>
-    <li><a name="toc-crypto" href="#crypto">3.5 crypto</a></li>
-    <li><a name="toc-data" href="#data">3.6 data</a></li>
-    <li><a name="toc-file" href="#file">3.7 file</a></li>
-    <li><a name="toc-ftp" href="#ftp">3.8 ftp</a></li>
-    <li><a name="toc-gopher" href="#gopher">3.9 gopher</a></li>
-    <li><a name="toc-hls" href="#hls">3.10 hls</a></li>
-    <li><a name="toc-http" href="#http">3.11 http</a>
+    <li><a name="toc-amqp" href="#amqp">3.1 amqp</a></li>
+    <li><a name="toc-async" href="#async">3.2 async</a></li>
+    <li><a name="toc-bluray" href="#bluray">3.3 bluray</a></li>
+    <li><a name="toc-cache" href="#cache">3.4 cache</a></li>
+    <li><a name="toc-concat" href="#concat">3.5 concat</a></li>
+    <li><a name="toc-crypto" href="#crypto">3.6 crypto</a></li>
+    <li><a name="toc-data" href="#data">3.7 data</a></li>
+    <li><a name="toc-file" href="#file">3.8 file</a></li>
+    <li><a name="toc-ftp" href="#ftp">3.9 ftp</a></li>
+    <li><a name="toc-gopher" href="#gopher">3.10 gopher</a></li>
+    <li><a name="toc-hls" href="#hls">3.11 hls</a></li>
+    <li><a name="toc-http" href="#http">3.12 http</a>
     <ul class="no-bullet">
-      <li><a name="toc-HTTP-Cookies" href="#HTTP-Cookies">3.11.1 HTTP Cookies</a></li>
+      <li><a name="toc-HTTP-Cookies" href="#HTTP-Cookies">3.12.1 HTTP Cookies</a></li>
     </ul></li>
-    <li><a name="toc-Icecast" href="#Icecast">3.12 Icecast</a></li>
-    <li><a name="toc-mmst" href="#mmst">3.13 mmst</a></li>
-    <li><a name="toc-mmsh" href="#mmsh">3.14 mmsh</a></li>
-    <li><a name="toc-md5" href="#md5">3.15 md5</a></li>
-    <li><a name="toc-pipe" href="#pipe">3.16 pipe</a></li>
-    <li><a name="toc-prompeg" href="#prompeg">3.17 prompeg</a></li>
-    <li><a name="toc-rtmp" href="#rtmp">3.18 rtmp</a></li>
-    <li><a name="toc-rtmpe" href="#rtmpe">3.19 rtmpe</a></li>
-    <li><a name="toc-rtmps" href="#rtmps">3.20 rtmps</a></li>
-    <li><a name="toc-rtmpt" href="#rtmpt">3.21 rtmpt</a></li>
-    <li><a name="toc-rtmpte" href="#rtmpte">3.22 rtmpte</a></li>
-    <li><a name="toc-rtmpts" href="#rtmpts">3.23 rtmpts</a></li>
-    <li><a name="toc-libsmbclient" href="#libsmbclient">3.24 libsmbclient</a></li>
-    <li><a name="toc-libssh" href="#libssh">3.25 libssh</a></li>
-    <li><a name="toc-librtmp-rtmp_002c-rtmpe_002c-rtmps_002c-rtmpt_002c-rtmpte" href="#librtmp-rtmp_002c-rtmpe_002c-rtmps_002c-rtmpt_002c-rtmpte">3.26 librtmp rtmp, rtmpe, rtmps, rtmpt, rtmpte</a></li>
-    <li><a name="toc-rtp" href="#rtp">3.27 rtp</a></li>
-    <li><a name="toc-rtsp" href="#rtsp">3.28 rtsp</a>
+    <li><a name="toc-Icecast" href="#Icecast">3.13 Icecast</a></li>
+    <li><a name="toc-mmst" href="#mmst">3.14 mmst</a></li>
+    <li><a name="toc-mmsh" href="#mmsh">3.15 mmsh</a></li>
+    <li><a name="toc-md5" href="#md5">3.16 md5</a></li>
+    <li><a name="toc-pipe" href="#pipe">3.17 pipe</a></li>
+    <li><a name="toc-prompeg" href="#prompeg">3.18 prompeg</a></li>
+    <li><a name="toc-rtmp" href="#rtmp">3.19 rtmp</a></li>
+    <li><a name="toc-rtmpe" href="#rtmpe">3.20 rtmpe</a></li>
+    <li><a name="toc-rtmps" href="#rtmps">3.21 rtmps</a></li>
+    <li><a name="toc-rtmpt" href="#rtmpt">3.22 rtmpt</a></li>
+    <li><a name="toc-rtmpte" href="#rtmpte">3.23 rtmpte</a></li>
+    <li><a name="toc-rtmpts" href="#rtmpts">3.24 rtmpts</a></li>
+    <li><a name="toc-libsmbclient" href="#libsmbclient">3.25 libsmbclient</a></li>
+    <li><a name="toc-libssh" href="#libssh">3.26 libssh</a></li>
+    <li><a name="toc-librtmp-rtmp_002c-rtmpe_002c-rtmps_002c-rtmpt_002c-rtmpte" href="#librtmp-rtmp_002c-rtmpe_002c-rtmps_002c-rtmpt_002c-rtmpte">3.27 librtmp rtmp, rtmpe, rtmps, rtmpt, rtmpte</a></li>
+    <li><a name="toc-rtp" href="#rtp">3.28 rtp</a></li>
+    <li><a name="toc-rtsp" href="#rtsp">3.29 rtsp</a>
     <ul class="no-bullet">
-      <li><a name="toc-Examples-1" href="#Examples-1">3.28.1 Examples</a></li>
+      <li><a name="toc-Examples" href="#Examples">3.29.1 Examples</a></li>
     </ul></li>
-    <li><a name="toc-sap" href="#sap">3.29 sap</a>
+    <li><a name="toc-sap" href="#sap">3.30 sap</a>
     <ul class="no-bullet">
-      <li><a name="toc-Muxer" href="#Muxer">3.29.1 Muxer</a></li>
-      <li><a name="toc-Demuxer" href="#Demuxer">3.29.2 Demuxer</a></li>
+      <li><a name="toc-Muxer" href="#Muxer">3.30.1 Muxer</a></li>
+      <li><a name="toc-Demuxer" href="#Demuxer">3.30.2 Demuxer</a></li>
     </ul></li>
-    <li><a name="toc-sctp" href="#sctp">3.30 sctp</a></li>
-    <li><a name="toc-srt" href="#srt">3.31 srt</a></li>
-    <li><a name="toc-srtp" href="#srtp">3.32 srtp</a></li>
-    <li><a name="toc-subfile" href="#subfile">3.33 subfile</a></li>
-    <li><a name="toc-tee" href="#tee">3.34 tee</a></li>
-    <li><a name="toc-tcp" href="#tcp">3.35 tcp</a></li>
-    <li><a name="toc-tls" href="#tls">3.36 tls</a></li>
-    <li><a name="toc-udp" href="#udp">3.37 udp</a>
+    <li><a name="toc-sctp" href="#sctp">3.31 sctp</a></li>
+    <li><a name="toc-srt" href="#srt">3.32 srt</a></li>
+    <li><a name="toc-srtp" href="#srtp">3.33 srtp</a></li>
+    <li><a name="toc-subfile" href="#subfile">3.34 subfile</a></li>
+    <li><a name="toc-tee" href="#tee">3.35 tee</a></li>
+    <li><a name="toc-tcp" href="#tcp">3.36 tcp</a></li>
+    <li><a name="toc-tls" href="#tls">3.37 tls</a></li>
+    <li><a name="toc-udp" href="#udp">3.38 udp</a>
     <ul class="no-bullet">
-      <li><a name="toc-Examples" href="#Examples">3.37.1 Examples</a></li>
+      <li><a name="toc-Examples-1" href="#Examples-1">3.38.1 Examples</a></li>
     </ul></li>
-    <li><a name="toc-unix" href="#unix">3.38 unix</a></li>
+    <li><a name="toc-unix" href="#unix">3.39 unix</a></li>
+    <li><a name="toc-zmq" href="#zmq">3.40 zmq</a></li>
   </ul></li>
   <li><a name="toc-See-Also" href="#See-Also">4 See Also</a></li>
   <li><a name="toc-Authors" href="#Authors">5 Authors</a></li>
@@ -160,8 +162,90 @@ in microseconds.
 
 <p>A description of the currently available protocols follows.
 </p>
+<a name="amqp"></a>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-amqp">3.1 amqp</a></h2>
+
+<p>Advanced Message Queueing Protocol (AMQP) version 0-9-1 is a broker based
+publish-subscribe communication protocol.
+</p>
+<p>FFmpeg must be compiled with &ndash;enable-librabbitmq to support AMQP. A separate
+AMQP broker must also be run. An example open-source AMQP broker is RabbitMQ.
+</p>
+<p>After starting the broker, an FFmpeg client may stream data to the broker using
+the command:
+</p>
+<div class="example">
+<pre class="example">ffmpeg -re -i input -f mpegts amqp://[[user]:[password]@]hostname[:port]
+</pre></div>
+
+<p>Where hostname and port (default is 5672) is the address of the broker. The
+client may also set a user/password for authentication. The default for both
+fields is &quot;guest&quot;.
+</p>
+<p>Muliple subscribers may stream from the broker using the command:
+</p><div class="example">
+<pre class="example">ffplay amqp://[[user]:[password]@]hostname[:port]
+</pre></div>
+
+<p>In RabbitMQ all data published to the broker flows through a specific exchange,
+and each subscribing client has an assigned queue/buffer. When a packet arrives
+at an exchange, it may be copied to a client&rsquo;s queue depending on the exchange
+and routing_key fields.
+</p>
+<p>The following options are supported:
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>exchange</samp>&rsquo;</dt>
+<dd><p>Sets the exchange to use on the broker. RabbitMQ has several predefined
+exchanges: &quot;amq.direct&quot; is the default exchange, where the publisher and
+subscriber must have a matching routing_key; &quot;amq.fanout&quot; is the same as a
+broadcast operation (i.e. the data is forwarded to all queues on the fanout
+exchange independent of the routing_key); and &quot;amq.topic&quot; is similar to
+&quot;amq.direct&quot;, but allows for more complex pattern matching (refer to the RabbitMQ
+documentation).
+</p>
+</dd>
+<dt>&lsquo;<samp>routing_key</samp>&rsquo;</dt>
+<dd><p>Sets the routing key. The default value is &quot;amqp&quot;. The routing key is used on
+the &quot;amq.direct&quot; and &quot;amq.topic&quot; exchanges to decide whether packets are written
+to the queue of a subscriber.
+</p>
+</dd>
+<dt>&lsquo;<samp>pkt_size</samp>&rsquo;</dt>
+<dd><p>Maximum size of each packet sent/received to the broker. Default is 131072.
+Minimum is 4096 and max is any large value (representable by an int). When
+receiving packets, this sets an internal buffer size in FFmpeg. It should be
+equal to or greater than the size of the published packets to the broker. Otherwise
+the received message may be truncated causing decoding errors.
+</p>
+</dd>
+<dt>&lsquo;<samp>connection_timeout</samp>&rsquo;</dt>
+<dd><p>The timeout in seconds during the initial connection to the broker. The
+default value is rw_timeout, or 5 seconds if rw_timeout is not set.
+</p>
+</dd>
+<dt>&lsquo;<samp>delivery_mode <var>mode</var></samp>&rsquo;</dt>
+<dd><p>Sets the delivery mode of each message sent to broker.
+The following values are accepted:
+</p><dl compact="compact">
+<dt>&lsquo;<samp>persistent</samp>&rsquo;</dt>
+<dd><p>Delivery mode set to &quot;persistent&quot; (2). This is the default value.
+Messages may be written to the broker&rsquo;s disk depending on its setup.
+</p>
+</dd>
+<dt>&lsquo;<samp>non-persistent</samp>&rsquo;</dt>
+<dd><p>Delivery mode set to &quot;non-persistent&quot; (1).
+Messages will stay in broker&rsquo;s memory unless the broker is under memory
+pressure.
+</p>
+</dd>
+</dl>
+
+</dd>
+</dl>
+
 <a name="async"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-async">3.1 async</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-async">3.2 async</a></h2>
 
 <p>Asynchronous data filling wrapper for input stream.
 </p>
@@ -174,7 +258,7 @@ async:cache:http://host/resource
 </pre></div>
 
 <a name="bluray"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-bluray">3.2 bluray</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-bluray">3.3 bluray</a></h2>
 
 <p>Read BluRay playlist.
 </p>
@@ -207,7 +291,7 @@ async:cache:http://host/resource
 </pre></div>
 
 <a name="cache"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-cache">3.3 cache</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-cache">3.4 cache</a></h2>
 
 <p>Caching wrapper for input stream.
 </p>
@@ -218,7 +302,7 @@ async:cache:http://host/resource
 </pre></div>
 
 <a name="concat"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-concat">3.4 concat</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-concat">3.5 concat</a></h2>
 
 <p>Physical concatenation protocol.
 </p>
@@ -245,7 +329,7 @@ command:
 many shells.
 </p>
 <a name="crypto"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-crypto">3.5 crypto</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-crypto">3.6 crypto</a></h2>
 
 <p>AES-encrypted stream reading protocol.
 </p>
@@ -267,7 +351,7 @@ crypto+<var>URL</var>
 </pre></div>
 
 <a name="data"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-data">3.6 data</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-data">3.7 data</a></h2>
 
 <p>Data in-line in the URI. See <a href="http://en.wikipedia.org/wiki/Data_URI_scheme">http://en.wikipedia.org/wiki/Data_URI_scheme</a>.
 </p>
@@ -277,7 +361,7 @@ crypto+<var>URL</var>
 </pre></div>
 
 <a name="file"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-file">3.7 file</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-file">3.8 file</a></h2>
 
 <p>File access protocol.
 </p>
@@ -334,7 +418,7 @@ features (e.g. accurate seeking).
 </dl>
 
 <a name="ftp"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-ftp">3.8 ftp</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-ftp">3.9 ftp</a></h2>
 
 <p>FTP (File Transfer Protocol).
 </p>
@@ -352,6 +436,16 @@ features (e.g. accurate seeking).
 <dd><p>Set timeout in microseconds of socket I/O operations used by the underlying low level
 operation. By default it is set to -1, which means that the timeout is
 not specified.
+</p>
+</dd>
+<dt>&lsquo;<samp>ftp-user</samp>&rsquo;</dt>
+<dd><p>Set a user to be used for authenticating to the FTP server. This is overridden by the
+user in the FTP URL.
+</p>
+</dd>
+<dt>&lsquo;<samp>ftp-password</samp>&rsquo;</dt>
+<dd><p>Set a password to be used for authenticating to the FTP server. This is overridden by
+the password in the FTP URL, or by &lsquo;<samp>ftp-anonymous-password</samp>&rsquo; if no user is set.
 </p>
 </dd>
 <dt>&lsquo;<samp>ftp-anonymous-password</samp>&rsquo;</dt>
@@ -372,12 +466,12 @@ etc.). Different FTP servers behave in different way during seek
 operation. ff* tools may produce incomplete content due to server limitations.
 </p>
 <a name="gopher"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-gopher">3.9 gopher</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-gopher">3.10 gopher</a></h2>
 
 <p>Gopher protocol.
 </p>
 <a name="hls"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-hls">3.10 hls</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-hls">3.11 hls</a></h2>
 
 <p>Read Apple HTTP Live Streaming compliant segmented stream as
 a uniform one. The M3U8 playlists describing the segments can be
@@ -398,7 +492,7 @@ To use the hls demuxer instead, simply use the direct URLs to the
 m3u8 files.
 </p>
 <a name="http"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-http">3.11 http</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-http">3.12 http</a></h2>
 
 <p>HTTP (Hyper Text Transfer Protocol).
 </p>
@@ -448,12 +542,6 @@ string describing the libavformat build. (&quot;Lavf/&lt;version&gt;&quot;)
 </dd>
 <dt>&lsquo;<samp>user-agent</samp>&rsquo;</dt>
 <dd><p>This is a deprecated option, you can use user_agent instead it.
-</p>
-</dd>
-<dt>&lsquo;<samp>timeout</samp>&rsquo;</dt>
-<dd><p>Set timeout in microseconds of socket I/O operations used by the underlying low level
-operation. By default it is set to -1, which means that the timeout is
-not specified.
 </p>
 </dd>
 <dt>&lsquo;<samp>reconnect_at_eof</samp>&rsquo;</dt>
@@ -554,10 +642,35 @@ to 0 it won&rsquo;t, if set to -1 it will try to send if it is applicable. Defau
 value is -1.
 </p>
 </dd>
+<dt>&lsquo;<samp>auth_type</samp>&rsquo;</dt>
+<dd>
+<p>Set HTTP authentication type. No option for Digest, since this method requires
+getting nonce parameters from the server first and can&rsquo;t be used straight away like
+Basic.
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>none</samp>&rsquo;</dt>
+<dd><p>Choose the HTTP authentication type automatically. This is the default.
+</p></dd>
+<dt>&lsquo;<samp>basic</samp>&rsquo;</dt>
+<dd>
+<p>Choose the HTTP basic authentication.
+</p>
+<p>Basic authentication sends a Base64-encoded string that contains a user name and password
+for the client. Base64 is not a form of encryption and should be considered the same as
+sending the user name and password in clear text (Base64 is a reversible encoding).
+If a resource needs to be protected, strongly consider using an authentication scheme
+other than basic authentication. HTTPS/TLS should be used with basic authentication.
+Without these additional security enhancements, basic authentication should not be used
+to protect sensitive or valuable information.
+</p></dd>
+</dl>
+
+</dd>
 </dl>
 
 <a name="HTTP-Cookies"></a>
-<h3 class="subsection"><a href="ffmpeg-protocols.html#toc-HTTP-Cookies">3.11.1 HTTP Cookies</a></h3>
+<h3 class="subsection"><a href="ffmpeg-protocols.html#toc-HTTP-Cookies">3.12.1 HTTP Cookies</a></h3>
 
 <p>Some HTTP requests will be denied unless cookie values are passed in with the
 request. The &lsquo;<samp>cookies</samp>&rsquo; option allows these cookies to be specified. At
@@ -572,7 +685,7 @@ by a newline.
 </pre></div>
 
 <a name="Icecast"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-Icecast">3.12 Icecast</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-Icecast">3.13 Icecast</a></h2>
 
 <p>Icecast protocol (stream to Icecast servers)
 </p>
@@ -619,6 +732,10 @@ audio/mpeg.
 HTTP PUT method but the SOURCE method.
 </p>
 </dd>
+<dt>&lsquo;<samp>tls</samp>&rsquo;</dt>
+<dd><p>Establish a TLS (HTTPS) connection to Icecast.
+</p>
+</dd>
 </dl>
 
 <div class="example">
@@ -626,12 +743,12 @@ HTTP PUT method but the SOURCE method.
 </pre></div>
 
 <a name="mmst"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-mmst">3.13 mmst</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-mmst">3.14 mmst</a></h2>
 
 <p>MMS (Microsoft Media Server) protocol over TCP.
 </p>
 <a name="mmsh"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-mmsh">3.14 mmsh</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-mmsh">3.15 mmsh</a></h2>
 
 <p>MMS (Microsoft Media Server) protocol over HTTP.
 </p>
@@ -641,7 +758,7 @@ HTTP PUT method but the SOURCE method.
 </pre></div>
 
 <a name="md5"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-md5">3.15 md5</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-md5">3.16 md5</a></h2>
 
 <p>MD5 output protocol.
 </p>
@@ -662,7 +779,7 @@ ffmpeg -i input.flv -f avi -y md5:
 be seekable, so they will fail with the MD5 output protocol.
 </p>
 <a name="pipe"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-pipe">3.16 pipe</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-pipe">3.17 pipe</a></h2>
 
 <p>UNIX pipe access protocol.
 </p>
@@ -707,7 +824,7 @@ time, which is valuable if data transmission is slow.
 be seekable, so they will fail with the pipe output protocol.
 </p>
 <a name="prompeg"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-prompeg">3.17 prompeg</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-prompeg">3.18 prompeg</a></h2>
 
 <p>Pro-MPEG Code of Practice #3 Release 2 FEC protocol.
 </p>
@@ -744,7 +861,7 @@ and <code>port + 4</code> for the row FEC stream.
 </pre></div>
 
 <a name="rtmp"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmp">3.18 rtmp</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmp">3.19 rtmp</a></h2>
 
 <p>Real-Time Messaging Protocol.
 </p>
@@ -893,7 +1010,7 @@ app names separately:
 </pre></div>
 
 <a name="rtmpe"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmpe">3.19 rtmpe</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmpe">3.20 rtmpe</a></h2>
 
 <p>Encrypted Real-Time Messaging Protocol.
 </p>
@@ -903,7 +1020,7 @@ consisting of Diffie-Hellman key exchange and HMACSHA256, generating
 a pair of RC4 keys.
 </p>
 <a name="rtmps"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmps">3.20 rtmps</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmps">3.21 rtmps</a></h2>
 
 <p>Real-Time Messaging Protocol over a secure SSL connection.
 </p>
@@ -911,7 +1028,7 @@ a pair of RC4 keys.
 multimedia content across an encrypted connection.
 </p>
 <a name="rtmpt"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmpt">3.21 rtmpt</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmpt">3.22 rtmpt</a></h2>
 
 <p>Real-Time Messaging Protocol tunneled through HTTP.
 </p>
@@ -920,7 +1037,7 @@ for streaming multimedia content within HTTP requests to traverse
 firewalls.
 </p>
 <a name="rtmpte"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmpte">3.22 rtmpte</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmpte">3.23 rtmpte</a></h2>
 
 <p>Encrypted Real-Time Messaging Protocol tunneled through HTTP.
 </p>
@@ -929,7 +1046,7 @@ is used for streaming multimedia content within HTTP requests to traverse
 firewalls.
 </p>
 <a name="rtmpts"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmpts">3.23 rtmpts</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtmpts">3.24 rtmpts</a></h2>
 
 <p>Real-Time Messaging Protocol tunneled through HTTPS.
 </p>
@@ -938,7 +1055,7 @@ for streaming multimedia content within HTTPS requests to traverse
 firewalls.
 </p>
 <a name="libsmbclient"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-libsmbclient">3.24 libsmbclient</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-libsmbclient">3.25 libsmbclient</a></h2>
 
 <p>libsmbclient permits one to manipulate CIFS/SMB network resources.
 </p>
@@ -971,7 +1088,7 @@ truncating. Default value is 1.
 <p>For more information see: <a href="http://www.samba.org/">http://www.samba.org/</a>.
 </p>
 <a name="libssh"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-libssh">3.25 libssh</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-libssh">3.26 libssh</a></h2>
 
 <p>Secure File Transfer Protocol via libssh
 </p>
@@ -1011,7 +1128,7 @@ By default libssh searches for keys in the &lsquo;<tt>~/.ssh/</tt>&rsquo; direct
 </pre></div>
 
 <a name="librtmp-rtmp_002c-rtmpe_002c-rtmps_002c-rtmpt_002c-rtmpte"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-librtmp-rtmp_002c-rtmpe_002c-rtmps_002c-rtmpt_002c-rtmpte">3.26 librtmp rtmp, rtmpe, rtmps, rtmpt, rtmpte</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-librtmp-rtmp_002c-rtmpe_002c-rtmps_002c-rtmpt_002c-rtmpte">3.27 librtmp rtmp, rtmpe, rtmps, rtmpt, rtmpte</a></h2>
 
 <p>Real-Time Messaging Protocol and its variants supported through
 librtmp.
@@ -1052,7 +1169,7 @@ meaning as specified for the RTMP native protocol.
 </pre></div>
 
 <a name="rtp"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtp">3.27 rtp</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtp">3.28 rtp</a></h2>
 
 <p>Real-time Transport Protocol.
 </p>
@@ -1128,7 +1245,7 @@ set to the local RTP port value plus 1.
 </li></ol>
 
 <a name="rtsp"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtsp">3.28 rtsp</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-rtsp">3.29 rtsp</a></h2>
 
 <p>Real-Time Streaming Protocol.
 </p>
@@ -1258,8 +1375,8 @@ streams to display can be chosen with <code>-vst</code> <var>n</var> and
 <code>-ast</code> <var>n</var> for video and audio respectively, and can be switched
 on the fly by pressing <code>v</code> and <code>a</code>.
 </p>
-<a name="Examples-1"></a>
-<h3 class="subsection"><a href="ffmpeg-protocols.html#toc-Examples-1">3.28.1 Examples</a></h3>
+<a name="Examples"></a>
+<h3 class="subsection"><a href="ffmpeg-protocols.html#toc-Examples">3.29.1 Examples</a></h3>
 
 <p>The following examples all make use of the <code>ffplay</code> and
 <code>ffmpeg</code> tools.
@@ -1291,7 +1408,7 @@ Receive a stream in realtime:
 </li></ul>
 
 <a name="sap"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-sap">3.29 sap</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-sap">3.30 sap</a></h2>
 
 <p>Session Announcement Protocol (RFC 2974). This is not technically a
 protocol handler in libavformat, it is a muxer and demuxer.
@@ -1299,7 +1416,7 @@ It is used for signalling of RTP streams, by announcing the SDP for the
 streams regularly on a separate port.
 </p>
 <a name="Muxer"></a>
-<h3 class="subsection"><a href="ffmpeg-protocols.html#toc-Muxer">3.29.1 Muxer</a></h3>
+<h3 class="subsection"><a href="ffmpeg-protocols.html#toc-Muxer">3.30.1 Muxer</a></h3>
 
 <p>The syntax for a SAP url given to the muxer is:
 </p><div class="example">
@@ -1360,7 +1477,7 @@ on unique ports.
 </pre></div>
 
 <a name="Demuxer"></a>
-<h3 class="subsection"><a href="ffmpeg-protocols.html#toc-Demuxer">3.29.2 Demuxer</a></h3>
+<h3 class="subsection"><a href="ffmpeg-protocols.html#toc-Demuxer">3.30.2 Demuxer</a></h3>
 
 <p>The syntax for a SAP url given to the demuxer is:
 </p><div class="example">
@@ -1389,7 +1506,7 @@ Once an announcement is received, it tries to receive that particular stream.
 </pre></div>
 
 <a name="sctp"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-sctp">3.30 sctp</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-sctp">3.31 sctp</a></h2>
 
 <p>Stream Control Transmission Protocol.
 </p>
@@ -1410,7 +1527,7 @@ Once an announcement is received, it tries to receive that particular stream.
 </dl>
 
 <a name="srt"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-srt">3.31 srt</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-srt">3.32 srt</a></h2>
 
 <p>Haivision Secure Reliable Transport Protocol via libsrt.
 </p>
@@ -1434,7 +1551,7 @@ options.
 <p>This protocol accepts the following options.
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>connect_timeout</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>connect_timeout=<var>milliseconds</var></samp>&rsquo;</dt>
 <dd><p>Connection timeout; SRT cannot connect for RTT &gt; 1500 msec
 (2 handshake exchanges) with the default connect timeout of
 3 seconds. This option applies to the caller and rendezvous
@@ -1470,7 +1587,7 @@ the library. Default value is 0.
 <dd><p>IP Time To Live. Applies to sender only. Default value is 64.
 </p>
 </dd>
-<dt>&lsquo;<samp>latency</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>latency=<var>microseconds</var></samp>&rsquo;</dt>
 <dd><p>Timestamp-based Packet Delivery Delay.
 Used to absorb bursts of missed packet retransmissions.
 This flag sets both &lsquo;<samp>rcvlatency</samp>&rsquo; and &lsquo;<samp>peerlatency</samp>&rsquo;
@@ -1482,7 +1599,7 @@ when side is receiver, and the bidirectional stream
 sending is not supported.
 </p>
 </dd>
-<dt>&lsquo;<samp>listen_timeout</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>listen_timeout=<var>microseconds</var></samp>&rsquo;</dt>
 <dd><p>Set socket listen timeout.
 </p>
 </dd>
@@ -1534,6 +1651,29 @@ the receiver only if the received data is encrypted.
 The configured passphrase cannot be recovered (write-only).
 </p>
 </dd>
+<dt>&lsquo;<samp>enforced_encryption=<var>1|0</var></samp>&rsquo;</dt>
+<dd><p>If true, both connection parties must have the same password
+set (including empty, that is, with no encryption). If the
+password doesn&rsquo;t match or only one side is unencrypted,
+the connection is rejected. Default is true.
+</p>
+</dd>
+<dt>&lsquo;<samp>kmrefreshrate=<var>packets</var></samp>&rsquo;</dt>
+<dd><p>The number of packets to be transmitted after which the
+encryption key is switched to a new key. Default is -1.
+-1 means auto (0x1000000 in srt library). The range for
+this option is integers in the 0 - <code>INT_MAX</code>.
+</p>
+</dd>
+<dt>&lsquo;<samp>kmpreannounce=<var>packets</var></samp>&rsquo;</dt>
+<dd><p>The interval between when a new encryption key is sent and
+when switchover occurs. This value also applies to the
+subsequent interval between when switchover occurs and
+when the old encryption key is decommissioned. Default is -1.
+-1 means auto (0x1000 in srt library). The range for
+this option is integers in the 0 - <code>INT_MAX</code>.
+</p>
+</dd>
 <dt>&lsquo;<samp>payload_size=<var>bytes</var></samp>&rsquo;</dt>
 <dd><p>Sets the maximum declared size of a packet transferred
 during the single call to the sending function in Live
@@ -1551,7 +1691,7 @@ use a bigger maximum frame size, though not greater than
 <dd><p>Alias for &lsquo;<samp>payload_size</samp>&rsquo;.
 </p>
 </dd>
-<dt>&lsquo;<samp>peerlatency</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>peerlatency=<var>microseconds</var></samp>&rsquo;</dt>
 <dd><p>The latency value (as described in &lsquo;<samp>rcvlatency</samp>&rsquo;) that is
 set by the sender side as a minimum value for the receiver.
 </p>
@@ -1565,7 +1705,7 @@ key size obtained from sender in HaiCrypt handshake.
 Default value is 0.
 </p>
 </dd>
-<dt>&lsquo;<samp>rcvlatency</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>rcvlatency=<var>microseconds</var></samp>&rsquo;</dt>
 <dd><p>The time that should elapse since the moment when the
 packet was sent and the moment when it&rsquo;s delivered to
 the receiver application in the receiving function.
@@ -1586,12 +1726,10 @@ is only available as &lsquo;<samp>latency</samp>&rsquo;.
 <dd><p>Set UDP send buffer size, expressed in bytes.
 </p>
 </dd>
-<dt>&lsquo;<samp>rw_timeout</samp>&rsquo;</dt>
-<dd><p>Set raise error timeout for read/write optations.
-</p>
-<p>This option is only relevant in read mode:
-if no data arrived in more than this time
-interval, raise error.
+<dt>&lsquo;<samp>timeout=<var>microseconds</var></samp>&rsquo;</dt>
+<dd><p>Set raise error timeouts for read, write and connect operations. Note that the
+SRT library has internal timeouts which can be controlled separately, the
+value set here is only a cap on those.
 </p>
 </dd>
 <dt>&lsquo;<samp>tlpktdrop=<var>1|0</var></samp>&rsquo;</dt>
@@ -1695,12 +1833,19 @@ the overhead transmission (retransmitted and control packets).
 for further explanations
 </p>
 </dd>
+<dt>&lsquo;<samp>linger=<var>seconds</var></samp>&rsquo;</dt>
+<dd><p>The number of seconds that the socket waits for unsent data when closing.
+Default is -1. -1 means auto (off with 0 seconds in live mode, on with 180
+seconds in file mode). The range for this option is integers in the
+0 - <code>INT_MAX</code>.
+</p>
+</dd>
 </dl>
 
 <p>For more information see: <a href="https://github.com/Haivision/srt">https://github.com/Haivision/srt</a>.
 </p>
 <a name="srtp"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-srtp">3.32 srtp</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-srtp">3.33 srtp</a></h2>
 
 <p>Secure Real-time Transport Protocol.
 </p>
@@ -1729,7 +1874,7 @@ used as master salt.
 </dl>
 
 <a name="subfile"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-subfile">3.33 subfile</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-subfile">3.34 subfile</a></h2>
 
 <p>Virtually extract a segment of a file or another stream.
 The underlying stream must be seekable.
@@ -1764,7 +1909,7 @@ externally and multiplied by 2048):
 </pre></div>
 
 <a name="tee"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-tee">3.34 tee</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-tee">3.35 tee</a></h2>
 
 <p>Writes the output to multiple protocols. The individual outputs are separated
 by |
@@ -1774,7 +1919,7 @@ by |
 </pre></div>
 
 <a name="tcp"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-tcp">3.35 tcp</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-tcp">3.36 tcp</a></h2>
 
 <p>Transmission Control Protocol.
 </p>
@@ -1829,7 +1974,7 @@ ffplay tcp://<var>hostname</var>:<var>port</var>
 </pre></div>
 
 <a name="tls"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-tls">3.36 tls</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-tls">3.37 tls</a></h2>
 
 <p>Transport Layer Security (TLS) / Secure Sockets Layer (SSL)
 </p>
@@ -1895,7 +2040,7 @@ the server role in the handshake instead of the client role.
 </pre></div>
 
 <a name="udp"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-udp">3.37 udp</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-udp">3.38 udp</a></h2>
 
 <p>User Datagram Protocol.
 </p>
@@ -1917,7 +2062,7 @@ UDP socket buffer overruns. The <var>fifo_size</var> and
 <dt>&lsquo;<samp>buffer_size=<var>size</var></samp>&rsquo;</dt>
 <dd><p>Set the UDP maximum socket buffer size in bytes. This is used to set either
 the receive or send buffer size, depending on what the socket is used for.
-Default is 64KB.  See also <var>fifo_size</var>.
+Default is 32 KB for output, 384 KB for input.  See also <var>fifo_size</var>.
 </p>
 </dd>
 <dt>&lsquo;<samp>bitrate=<var>bitrate</var></samp>&rsquo;</dt>
@@ -1998,8 +2143,8 @@ a broadcast storm protection.
 </p></dd>
 </dl>
 
-<a name="Examples"></a>
-<h3 class="subsection"><a href="ffmpeg-protocols.html#toc-Examples">3.37.1 Examples</a></h3>
+<a name="Examples-1"></a>
+<h3 class="subsection"><a href="ffmpeg-protocols.html#toc-Examples-1">3.38.1 Examples</a></h3>
 
 <ul>
 <li>
@@ -2023,7 +2168,7 @@ Use <code>ffmpeg</code> to receive over UDP from a remote endpoint:
 </li></ul>
 
 <a name="unix"></a>
-<h2 class="section"><a href="ffmpeg-protocols.html#toc-unix">3.38 unix</a></h2>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-unix">3.39 unix</a></h2>
 
 <p>Unix local socket
 </p>
@@ -2044,6 +2189,54 @@ Use <code>ffmpeg</code> to receive over UDP from a remote endpoint:
 <dd><p>Create the Unix socket in listening mode.
 </p></dd>
 </dl>
+
+<a name="zmq"></a>
+<h2 class="section"><a href="ffmpeg-protocols.html#toc-zmq">3.40 zmq</a></h2>
+
+<p>ZeroMQ asynchronous messaging using the libzmq library.
+</p>
+<p>This library supports unicast streaming to multiple clients without relying on
+an external server.
+</p>
+<p>The required syntax for streaming or connecting to a stream is:
+</p><div class="example">
+<pre class="example">zmq:tcp://ip-address:port
+</pre></div>
+
+<p>Example:
+Create a localhost stream on port 5555:
+</p><div class="example">
+<pre class="example">ffmpeg -re -i input -f mpegts zmq:tcp://127.0.0.1:5555
+</pre></div>
+
+<p>Multiple clients may connect to the stream using:
+</p><div class="example">
+<pre class="example">ffplay zmq:tcp://127.0.0.1:5555
+</pre></div>
+
+<p>Streaming to multiple clients is implemented using a ZeroMQ Pub-Sub pattern.
+The server side binds to a port and publishes data. Clients connect to the
+server (via IP address/port) and subscribe to the stream. The order in which
+the server and client start generally does not matter.
+</p>
+<p>ffmpeg must be compiled with the &ndash;enable-libzmq option to support
+this protocol.
+</p>
+<p>Options can be set on the <code>ffmpeg</code>/<code>ffplay</code> command
+line. The following options are supported:
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>pkt_size</samp>&rsquo;</dt>
+<dd><p>Forces the maximum packet size for sending/receiving data. The default value is
+131,072 bytes. On the server side, this sets the maximum size of sent packets
+via ZeroMQ. On the clients, it sets an internal buffer size for receiving
+packets. Note that pkt_size on the clients should be equal to or greater than
+pkt_size on the server. Otherwise the received message may be truncated causing
+decoding errors.
+</p>
+</dd>
+</dl>
+
 
 
 <a name="See-Also"></a>

@@ -1,6 +1,6 @@
 Zeranoe FFmpeg Builds <http://ffmpeg.zeranoe.com/builds/>
 
-Build: ffmpeg-20190601-4158865-win64-static
+Build: ffmpeg-20200812-4ed6bca-win64-static
 
 Configuration:
   --enable-gpl
@@ -21,6 +21,7 @@ Configuration:
   --enable-libshine
   --enable-libsnappy
   --enable-libsoxr
+  --enable-libsrt
   --enable-libtheora
   --enable-libtwolame
   --enable-libvpx
@@ -34,15 +35,19 @@ Configuration:
   --enable-zlib
   --enable-gmp
   --enable-libvidstab
+  --enable-libvmaf
   --enable-libvorbis
   --enable-libvo-amrwbenc
   --enable-libmysofa
   --enable-libspeex
   --enable-libxvid
   --enable-libaom
+  --enable-libgsm
+  --enable-librav1e
+  --disable-w32threads
   --enable-libmfx
-  --enable-amf
   --enable-ffnvcodec
+  --enable-cuda-llvm
   --enable-cuvid
   --enable-d3d11va
   --enable-nvenc
@@ -50,47 +55,52 @@ Configuration:
   --enable-dxva2
   --enable-avisynth
   --enable-libopenmpt
+  --enable-amf
 
 Libraries:
-  SDL               2.0.9             <https://libsdl.org>
-  Fontconfig        2.13.0            <http://freedesktop.org/wiki/Software/fontconfig>
-  GnuTLS            3.6.7.1           <https://gnutls.org/>
-  libiconv          1.15              <http://gnu.org/software/libiconv>
-  libass            0.14.0            <https://github.com/libass/libass>
-  dav1d             20190521-e88c8ee  <https://code.videolan.org/videolan/dav1d>
-  libbluray         20180913-2d18c70  <https://www.videolan.org/developers/libbluray.html>
-  FreeType          2.10.0            <http://freetype.sourceforge.net>
+  SDL               20200805-9b0de62  <https://libsdl.org>
+  Fontconfig        2.13.92           <http://freedesktop.org/wiki/Software/fontconfig>
+  GnuTLS            3.6.14            <https://gnutls.org/>
+  libiconv          1.16              <http://gnu.org/software/libiconv>
+  libass            20200714-66dba8d  <https://github.com/libass/libass>
+  dav1d             20200720-6cf58c8  <https://code.videolan.org/videolan/dav1d>
+  libbluray         20200803-1ec56c7  <https://www.videolan.org/developers/libbluray.html>
+  FreeType          2.10.2            <http://freetype.sourceforge.net>
   LAME              3.100             <http://lame.sourceforge.net>
   OpenCORE AMR      20170731-07a5be4  <https://sourceforge.net/projects/opencore-amr>
-  OpenJPEG          20190402-d0dd894  <https://github.com/uclouvain/openjpeg>
-  Opus              20190414-296d556  <https://opus-codec.org>
-  shine             3.1.1             <https://github.com/savonet/shine>
-  Snappy            1.1.7             <https://github.com/google/snappy>
+  OpenJPEG          20200630-cbee789  <https://github.com/uclouvain/openjpeg>
+  Opus              20200707-484af25  <https://opus-codec.org>
+  shine             20190420-76ea4f0  <https://github.com/savonet/shine>
+  Snappy            1.1.8             <https://github.com/google/snappy>
   libsoxr           20180224-945b592  <http://sourceforge.net/projects/soxr>
-  Theora            20171023-e5d205b  <http://theora.org>
-  TwoLAME           0.3.13            <http://twolame.org>
-  vpx               20190425-e50f4e4  <http://webmproject.org>
-  WavPack           5.1.0             <http://wavpack.com>
-  WebP              1.0.2             <https://developers.google.com/speed/webp>
-  x264              20190314-5493be8  <https://www.videolan.org/developers/x264.html>
-  x265              20190524-b9bef1a  <https://bitbucket.org/multicoreware/x265/wiki/Home>
-  libxml2           2.9.8             <http://xmlsoft.org>
-  z.lib             20190324-89fad4b  <https://github.com/sekrit-twc/zimg>
-  XZ Utils          5.2.4             <http://tukaani.org/xz>
+  SRT               1.4.1             <https://www.srtalliance.org>
+  Theora            20200618-f98989a  <http://theora.org>
+  TwoLAME           0.4.0             <http://twolame.org>
+  vpx               20200803-f9ab864  <http://webmproject.org>
+  WavPack           5.3.0             <http://wavpack.com>
+  WebP              20200617-cf2f88b  <https://developers.google.com/speed/webp>
+  x264              20200714-db0d417  <https://www.videolan.org/developers/x264.html>
+  x265              20200529-73ca1d7  <https://bitbucket.org/multicoreware/x265/wiki/Home>
+  libxml2           2.9.10            <http://xmlsoft.org>
+  z.lib             20200805-7a89581  <https://github.com/sekrit-twc/zimg>
+  XZ Utils          5.2.5             <http://tukaani.org/xz>
   zlib              1.2.11            <http://zlib.net>
+  GMP               6.2.0             <https://gmplib.org>
   vid.stab          20190213-aeabc8d  <http://public.hronopik.de/vid.stab>
-  Vorbis            20180705-46e70fa  <http://vorbis.com>
+  VMAF              20200805-0816041  <https://github.com/Netflix/vmaf>
+  Vorbis            20200720-4a767c9  <http://vorbis.com>
   VisualOn AMR-WB   20141107-3b3fcd0  <https://sourceforge.net/projects/opencore-amr>
-  libmysofa         20181220-50ee637  <https://github.com/hoene/libmysofa>
-  Speex             20181021-6e04bfa  <http://speex.org>
-  Xvid              1.3.5             <https://labs.xvid.com>
-  aom               20190525-b0df1b2  <https://aomedia.googlesource.com/aom>
-  libmfx            1.27              <https://software.intel.com/en-us/media-sdk>
-  AMF               1.4.7             <https://gpuopen.com/gaming-product/advanced-media-framework>
-  nv-codec-headers  20190311-96a6db0  <https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git>
-  OpenMPT           20190424-2863742  <https://openmpt.org>
-
-Copyright (C) 2019 Kyle Schwarz
+  libmysofa         20200710-6f4f25e  <https://github.com/hoene/libmysofa>
+  Speex             20200716-870ff84  <http://speex.org>
+  Xvid              1.3.7             <https://labs.xvid.com>
+  aom               20200805-96c103d  <https://aomedia.googlesource.com/aom>
+  GSM               1.0.19            <http://quut.com/gsm/>
+  rav1e             20200805-f6ac395  <https://github.com/xiph/rav1e>
+  libmfx            1.32              <https://software.intel.com/en-us/media-sdk>
+  nv-codec-headers  20200701-de0b1bf  <https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git>
+  AviSynth+         20200804-b41c55b  <https://github.com/AviSynth/AviSynthPlus>
+  OpenMPT           20200805-0a144d7  <https://openmpt.org>
+  AMF               20200515-802f92e  <https://gpuopen.com/gaming-product/advanced-media-framework>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

@@ -10,7 +10,7 @@
 <meta name="description" content="ffmpeg Documentation: ">
 <meta name="keywords" content="FFmpeg documentation : ffmpeg ">
 <meta name="Generator" content="texi2html 5.0">
-<!-- Created on June 2, 2019 by texi2html 5.0 -->
+<!-- Created on August 12, 2020 by texi2html 5.0 -->
 <!--
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
@@ -37,26 +37,26 @@ Send bugs and suggestions to <texi2html-bug@nongnu.org>
 
 <ul class="no-bullet">
   <li><a name="toc-Synopsis" href="#Synopsis">1 Synopsis</a></li>
-  <li><a name="toc-Description" href="#Description">2 Description</a></li>
+  <li><a name="toc-Description-1" href="#Description-1">2 Description</a></li>
   <li><a name="toc-Detailed-description" href="#Detailed-description">3 Detailed description</a>
   <ul class="no-bullet">
     <li><a name="toc-Filtering" href="#Filtering">3.1 Filtering</a>
     <ul class="no-bullet">
       <li><a name="toc-Simple-filtergraphs" href="#Simple-filtergraphs">3.1.1 Simple filtergraphs</a></li>
-      <li><a name="toc-Complex-filtergraphs" href="#Complex-filtergraphs">3.1.2 Complex filtergraphs</a></li>
+      <li><a name="toc-Complex-filtergraphs-1" href="#Complex-filtergraphs-1">3.1.2 Complex filtergraphs</a></li>
     </ul></li>
     <li><a name="toc-Stream-copy" href="#Stream-copy">3.2 Stream copy</a></li>
   </ul></li>
   <li><a name="toc-Stream-selection" href="#Stream-selection">4 Stream selection</a>
   <ul class="no-bullet">
-    <li><a name="toc-Description-1" href="#Description-1">4.1 Description</a>
+    <li><a name="toc-Description" href="#Description">4.1 Description</a>
     <ul class="no-bullet">
       <li><a name="toc-Automatic-stream-selection" href="#Automatic-stream-selection">4.1.1 Automatic stream selection</a></li>
       <li><a name="toc-Manual-stream-selection" href="#Manual-stream-selection">4.1.2 Manual stream selection</a></li>
-      <li><a name="toc-Complex-filtergraphs-1" href="#Complex-filtergraphs-1">4.1.3 Complex filtergraphs</a></li>
+      <li><a name="toc-Complex-filtergraphs" href="#Complex-filtergraphs">4.1.3 Complex filtergraphs</a></li>
       <li><a name="toc-Stream-handling" href="#Stream-handling">4.1.4 Stream handling</a></li>
     </ul></li>
-    <li><a name="toc-Examples" href="#Examples">4.2 Examples</a></li>
+    <li><a name="toc-Examples-1" href="#Examples-1">4.2 Examples</a></li>
   </ul></li>
   <li><a name="toc-Options" href="#Options">5 Options</a>
   <ul class="no-bullet">
@@ -78,7 +78,7 @@ Send bugs and suggestions to <texi2html-bug@nongnu.org>
     </ul>
 </li>
   </ul></li>
-  <li><a name="toc-Examples-1" href="#Examples-1">6 Examples</a>
+  <li><a name="toc-Examples" href="#Examples">6 Examples</a>
   <ul class="no-bullet">
     <li><a name="toc-Video-and-Audio-grabbing" href="#Video-and-Audio-grabbing">6.1 Video and Audio grabbing</a></li>
     <li><a name="toc-X11-grabbing" href="#X11-grabbing">6.2 X11 grabbing</a></li>
@@ -96,8 +96,8 @@ Send bugs and suggestions to <texi2html-bug@nongnu.org>
 
 <p>ffmpeg [<var>global_options</var>] {[<var>input_file_options</var>] -i &lsquo;<tt>input_url</tt>&rsquo;} ... {[<var>output_file_options</var>] &lsquo;<tt>output_url</tt>&rsquo;} ...
 </p>
-<a name="Description"></a>
-<h1 class="chapter"><a href="ffmpeg.html#toc-Description">2 Description</a></h1>
+<a name="Description-1"></a>
+<h1 class="chapter"><a href="ffmpeg.html#toc-Description-1">2 Description</a></h1>
 
 <p><code>ffmpeg</code> is a very fast video and audio converter that can also grab from
 a live audio/video source. It can also convert between arbitrary sample
@@ -232,8 +232,8 @@ A simple filtergraph for video can look for example like this:
 touch the frame contents. Another example is the <code>setpts</code> filter, which
 only sets timestamps and otherwise passes the frames unchanged.
 </p>
-<a name="Complex-filtergraphs"></a>
-<h3 class="subsection"><a href="ffmpeg.html#toc-Complex-filtergraphs">3.1.2 Complex filtergraphs</a></h3>
+<a name="Complex-filtergraphs-1"></a>
+<h3 class="subsection"><a href="ffmpeg.html#toc-Complex-filtergraphs-1">3.1.2 Complex filtergraphs</a></h3>
 <p>Complex filtergraphs are those which cannot be described as simply a linear
 processing chain applied to one stream. This is the case, for example, when the graph has
 more than one input and/or output, or when output stream type is different from
@@ -296,8 +296,8 @@ described below. The <code>-vn / -an / -sn / -dn</code> options can be used to s
 video, audio, subtitle and data streams respectively, whether manually mapped or automatically
 selected, except for those streams which are outputs of complex filtergraphs.
 </p>
-<a name="Description-1"></a>
-<h2 class="section"><a href="ffmpeg.html#toc-Description-1">4.1 Description</a></h2>
+<a name="Description"></a>
+<h2 class="section"><a href="ffmpeg.html#toc-Description">4.1 Description</a></h2>
 <p>The sub-sections that follow describe the various rules that are involved in stream selection.
 The examples that follow next show how these rules are applied in practice.
 </p>
@@ -335,8 +335,8 @@ using <code>-map</code>.
 <p>When <code>-map</code> is used, only user-mapped streams are included in that output file,
 with one possible exception for filtergraph outputs described below.
 </p>
-<a name="Complex-filtergraphs-1"></a>
-<h3 class="subsection"><a href="ffmpeg.html#toc-Complex-filtergraphs-1">4.1.3 Complex filtergraphs</a></h3>
+<a name="Complex-filtergraphs"></a>
+<h3 class="subsection"><a href="ffmpeg.html#toc-Complex-filtergraphs">4.1.3 Complex filtergraphs</a></h3>
 
 <p>If there are any complex filtergraph output streams with unlabeled pads, they will be added
 to the first output file. This will lead to a fatal error if the stream type is not supported
@@ -363,8 +363,8 @@ within the output format. This applies generally as well: when the user sets an 
 the stream selection process cannot check if the encoded stream can be muxed into the output file.
 If it cannot, ffmpeg will abort and <em>all</em> output files will fail to be processed.
 </p>
-<a name="Examples"></a>
-<h2 class="section"><a href="ffmpeg.html#toc-Examples">4.2 Examples</a></h2>
+<a name="Examples-1"></a>
+<h2 class="section"><a href="ffmpeg.html#toc-Examples-1">4.2 Examples</a></h2>
 
 <p>The following examples illustrate the behavior, quirks and limitations of ffmpeg&rsquo;s stream
 selection methods.
@@ -628,8 +628,18 @@ for encoders, decoders, demuxers, muxers, filters, etc.
 </p>
 </dd>
 <dt>&lsquo;<samp>filter=<var>filter_name</var></samp>&rsquo;</dt>
-<dd><p>Print detailed information about the filter name <var>filter_name</var>. Use the
+<dd><p>Print detailed information about the filter named <var>filter_name</var>. Use the
 &lsquo;<samp>-filters</samp>&rsquo; option to get a list of all filters.
+</p>
+</dd>
+<dt>&lsquo;<samp>bsf=<var>bitstream_filter_name</var></samp>&rsquo;</dt>
+<dd><p>Print detailed information about the bitstream filter named <var>bitstream_filter_name</var>.
+Use the &lsquo;<samp>-bsfs</samp>&rsquo; option to get a list of all bitstream filters.
+</p>
+</dd>
+<dt>&lsquo;<samp>protocol=<var>protocol_name</var></samp>&rsquo;</dt>
+<dd><p>Print detailed information about the protocol named <var>protocol_name</var>.
+Use the &lsquo;<samp>-protocols</samp>&rsquo; option to get a list of all protocols.
 </p></dd>
 </dl>
 
@@ -782,14 +792,12 @@ state of <code>level</code> prefix flag or <var>loglevel</var>:
 <p>By default the program logs to stderr. If coloring is supported by the
 terminal, colors are used to mark errors and warnings. Log coloring
 can be disabled setting the environment variable
-<code>AV_LOG_FORCE_NOCOLOR</code> or <code>NO_COLOR</code>, or can be forced setting
+<code>AV_LOG_FORCE_NOCOLOR</code>, or can be forced setting
 the environment variable <code>AV_LOG_FORCE_COLOR</code>.
-The use of the environment variable <code>NO_COLOR</code> is deprecated and
-will be dropped in a future FFmpeg version.
 </p>
 </dd>
 <dt>&lsquo;<samp>-report</samp>&rsquo;</dt>
-<dd><p>Dump full command line and console output to a file named
+<dd><p>Dump full command line and log output to a file named
 <code><var>program</var>-<var>YYYYMMDD</var>-<var>HHMMSS</var>.log</code> in the current
 directory.
 This file can be useful for bug reports.
@@ -1288,12 +1296,7 @@ will be used.
 <p>Technical note &ndash; attachments are implemented as codec extradata, so this
 option can actually be used to extract extradata from any stream, not just
 attachments.
-</p>
-</dd>
-<dt>&lsquo;<samp>-noautorotate</samp>&rsquo;</dt>
-<dd><p>Disable automatically rotating video based on file metadata.
-</p>
-</dd>
+</p></dd>
 </dl>
 
 <a name="Video-Options"></a>
@@ -1384,6 +1387,20 @@ stream
 filter the stream.
 </p>
 <p>This is an alias for <code>-filter:v</code>, see the <a href="#filter_005foption">-filter option</a>.
+</p>
+</dd>
+<dt>&lsquo;<samp>-autorotate</samp>&rsquo;</dt>
+<dd><p>Automatically rotate the video according to file metadata. Enabled by
+default, use &lsquo;<samp>-noautorotate</samp>&rsquo; to disable it.
+</p>
+</dd>
+<dt>&lsquo;<samp>-autoscale</samp>&rsquo;</dt>
+<dd><p>Automatically scale the video according to the resolution of first frame.
+Enabled by default, use &lsquo;<samp>-noautoscale</samp>&rsquo; to disable it. When autoscale is
+disabled, all output frames of filter graph might not be in the same resolution
+and may be inadequate for some encoder/muxer. Therefore, it is not recommended
+to disable it unless you really know what you are doing.
+Disable autoscale at your own risk.
 </p></dd>
 </dl>
 
@@ -1418,8 +1435,8 @@ factor if negative.
 <dd><p>Force interlacing support in encoder (MPEG-2 and MPEG-4 only).
 Use this option if your input file is interlaced and you want
 to keep the interlaced format for minimum losses.
-The alternative is to deinterlace the input stream with
-&lsquo;<samp>-deinterlace</samp>&rsquo;, but deinterlacing introduces losses.
+The alternative is to deinterlace the input stream by use of a filter
+such as <code>yadif</code> or <code>bwdif</code>, but deinterlacing introduces losses.
 </p></dd>
 <dt>&lsquo;<samp>-psnr</samp>&rsquo;</dt>
 <dd><p>Calculate PSNR of compressed frames.
@@ -1459,12 +1476,18 @@ The alternative is to deinterlace the input stream with
 </dd>
 <dt>&lsquo;<samp>-force_key_frames[:<var>stream_specifier</var>] <var>time</var>[,<var>time</var>...] (<em>output,per-stream</em>)</samp>&rsquo;</dt>
 <dt>&lsquo;<samp>-force_key_frames[:<var>stream_specifier</var>] expr:<var>expr</var> (<em>output,per-stream</em>)</samp>&rsquo;</dt>
-<dd><p>Force key frames at the specified timestamps, more precisely at the first
-frames after each specified time.
+<dt>&lsquo;<samp>-force_key_frames[:<var>stream_specifier</var>] source (<em>output,per-stream</em>)</samp>&rsquo;</dt>
+<dd>
+<p><var>force_key_frames</var> can take arguments of the following form:
 </p>
-<p>If the argument is prefixed with <code>expr:</code>, the string <var>expr</var>
-is interpreted like an expression and is evaluated for each frame. A
-key frame is forced in case the evaluation is non-zero.
+<dl compact="compact">
+<dt>&lsquo;<samp><var>time</var>[,<var>time</var>...]</samp>&rsquo;</dt>
+<dd><p>If the argument consists of timestamps, ffmpeg will round the specified times to the nearest
+output timestamp as per the encoder time base and force a keyframe at the first frame having
+timestamp equal or greater than the computed timestamp. Note that if the encoder time base is too
+coarse, then the keyframes may be forced on frames with timestamps lower than the specified time.
+The default encoder time base is the inverse of the output framerate but may be set otherwise
+via <code>-enc_time_base</code>.
 </p>
 <p>If one of the times is &quot;<code>chapters</code>[<var>delta</var>]&quot;, it is expanded into
 the time of the beginning of all chapters in the file, shifted by
@@ -1478,6 +1501,12 @@ before the beginning of every chapter:
 <pre class="example">-force_key_frames 0:05:00,chapters-0.1
 </pre></div>
 
+</dd>
+<dt>&lsquo;<samp>expr:<var>expr</var></samp>&rsquo;</dt>
+<dd><p>If the argument is prefixed with <code>expr:</code>, the string <var>expr</var>
+is interpreted like an expression and is evaluated for each frame. A
+key frame is forced in case the evaluation is non-zero.
+</p>
 <p>The expression in <var>expr</var> can contain the following constants:
 </p><dl compact="compact">
 <dt>&lsquo;<samp>n</samp>&rsquo;</dt>
@@ -1509,6 +1538,14 @@ starting from second 13:
 </p><div class="example">
 <pre class="example">-force_key_frames expr:if(isnan(prev_forced_t),gte(t,13),gte(t,prev_forced_t+5))
 </pre></div>
+
+</dd>
+<dt>&lsquo;<samp>source</samp>&rsquo;</dt>
+<dd><p>If the argument is <code>source</code>, ffmpeg will force a key frame if
+the current frame being encoded is marked as a key frame in its source.
+</p>
+</dd>
+</dl>
 
 <p>Note that forcing too many keyframes is very harmful for the lookahead
 algorithms of certain encoders: using fixed-GOP options or similar
@@ -1602,6 +1639,43 @@ devices matching particular platform or device strings.
 <dt><em>-init_hw_device opencl:1,device_type=gpu,device_extensions=cl_khr_fp16</em></dt>
 <dd><p>Choose the GPU device on the second platform supporting the <em>cl_khr_fp16</em>
 extension.
+</p></dd>
+</dl>
+
+</dd>
+<dt>&lsquo;<samp>vulkan</samp>&rsquo;</dt>
+<dd><p>If <var>device</var> is an integer, it selects the device by its index in a
+system-dependent list of devices.  If <var>device</var> is any other string, it
+selects the first device with a name containing that string as a substring.
+</p>
+<p>The following options are recognized:
+</p><dl compact="compact">
+<dt>&lsquo;<samp>debug</samp>&rsquo;</dt>
+<dd><p>If set to 1, enables the validation layer, if installed.
+</p></dd>
+<dt>&lsquo;<samp>linear_images</samp>&rsquo;</dt>
+<dd><p>If set to 1, images allocated by the hwcontext will be linear and locally mappable.
+</p></dd>
+<dt>&lsquo;<samp>instance_extensions</samp>&rsquo;</dt>
+<dd><p>A plus separated list of additional instance extensions to enable.
+</p></dd>
+<dt>&lsquo;<samp>device_extensions</samp>&rsquo;</dt>
+<dd><p>A plus separated list of additional device extensions to enable.
+</p></dd>
+</dl>
+
+<p>Examples:
+</p><dl compact="compact">
+<dt><em>-init_hw_device vulkan:1</em></dt>
+<dd><p>Choose the second device on the system.
+</p>
+</dd>
+<dt><em>-init_hw_device vulkan:RADV</em></dt>
+<dd><p>Choose the first device with a name containing the string <em>RADV</em>.
+</p>
+</dd>
+<dt><em>-init_hw_device vulkan:0,instance_extensions=VK_KHR_wayland_surface+VK_KHR_xcb_surface</em></dt>
+<dd><p>Choose the first device and enable the Wayland and XCB instance extensions.
 </p></dd>
 </dl>
 
@@ -2023,7 +2097,7 @@ it will usually display as 0 if not supported.
 Shows real, system and user time used in various steps (audio/video encode/decode).
 </p></dd>
 <dt>&lsquo;<samp>-timelimit <var>duration</var> (<em>global</em>)</samp>&rsquo;</dt>
-<dd><p>Exit after ffmpeg has been running for <var>duration</var> seconds.
+<dd><p>Exit after ffmpeg has been running for <var>duration</var> seconds in CPU user time.
 </p></dd>
 <dt>&lsquo;<samp>-dump (<em>global</em>)</samp>&rsquo;</dt>
 <dd><p>Dump each input packet to stderr.
@@ -2180,6 +2254,11 @@ or as a floating point number (e.g. 0.04166, 2.0833e-5)
 <dt>&lsquo;<samp>-dts_delta_threshold</samp>&rsquo;</dt>
 <dd><p>Timestamp discontinuity delta threshold.
 </p></dd>
+<dt>&lsquo;<samp>-dts_error_threshold <var>seconds</var></samp>&rsquo;</dt>
+<dd><p>Timestamp error delta threshold. This threshold use to discard crazy/damaged
+timestamps and the default is 30 hours which is arbitrarily picked and quite
+conservative.
+</p></dd>
 <dt>&lsquo;<samp>-muxdelay <var>seconds</var> (<em>output</em>)</samp>&rsquo;</dt>
 <dd><p>Set the maximum demux-decode delay.
 </p></dd>
@@ -2307,8 +2386,9 @@ not start from timestamp 0, such as transport streams.
 <dt>&lsquo;<samp>-thread_queue_size <var>size</var> (<em>input</em>)</samp>&rsquo;</dt>
 <dd><p>This option sets the maximum number of queued packets when reading from the
 file or device. With low latency / high rate live streams, packets may be
-discarded if they are not read in a timely manner; raising this value can
-avoid it.
+discarded if they are not read in a timely manner; setting this value can
+force ffmpeg to use a separate input thread and read packets as soon as they
+arrive. By default ffmpeg only do this if multiple inputs are specified.
 </p>
 </dd>
 <dt>&lsquo;<samp>-sdp_file <var>file</var> (<em>global</em>)</samp>&rsquo;</dt>
@@ -2356,6 +2436,9 @@ and is not supported by all demuxers.
 <dl compact="compact">
 <dt>&lsquo;<samp>empty_output</samp>&rsquo;</dt>
 <dd><p>No packets were passed to the muxer, the output is empty.
+</p></dd>
+<dt>&lsquo;<samp>empty_output_stream</samp>&rsquo;</dt>
+<dd><p>No packets were passed to the muxer in some of the output streams.
 </p></dd>
 </dl>
 
@@ -2451,8 +2534,8 @@ search for the file &lsquo;<tt>libvpx-1080p.avpreset</tt>&rsquo;.
 <var>arg</var>.avpreset in the same directories.
 </p>
 
-<a name="Examples-1"></a>
-<h1 class="chapter"><a href="ffmpeg.html#toc-Examples-1">6 Examples</a></h1>
+<a name="Examples"></a>
+<h1 class="chapter"><a href="ffmpeg.html#toc-Examples">6 Examples</a></h1>
 
 <a name="Video-and-Audio-grabbing"></a>
 <h2 class="section"><a href="ffmpeg.html#toc-Video-and-Audio-grabbing">6.1 Video and Audio grabbing</a></h2>
