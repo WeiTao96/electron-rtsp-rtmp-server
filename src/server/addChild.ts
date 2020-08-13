@@ -1,6 +1,8 @@
 import { ipcMain } from 'electron'
 import { start } from './pushVideo'
 import ffmpeg from 'fluent-ffmpeg';
+import myCasts from './mediaRender'
+let myCast = new myCasts()
 
 export default class MyChildProcess {
     private childProcessLst: { [index: string]: ffmpeg.FfmpegCommand } = {}
@@ -15,15 +17,22 @@ export default class MyChildProcess {
             } else if (this.childProcessLst[outputPath] && !arg[2]) {
                 event.sender.send('asynchronous-reply', { from: inputPath, type: 'error', message: '输出路径重复' })
             } else {
-                let ffmeg = start(inputPath, outputPath,event)
+                let ffmeg = start(inputPath, outputPath, event)
                 if (ffmeg) {
                     this.childProcessLst[outputPath] = ffmeg
-                }else {
+                } else {
                     event.sender.send('asynchronous-reply', { from: inputPath, type: 'error', message: '创建失败' })
                 }
             }
 
         });
+        ipcMain.on('rtsp-rtmp-message', (event, arg: string[]) => {
+            let videoUrl = arg[0]
+            let tvUrl = arg[1]
+            let type = 'video/mp4'
+            myCast.play(videoUrl,tvUrl,type)
+        });
+
     }
 
     endChildProcess() {
