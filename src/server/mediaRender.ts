@@ -3,6 +3,8 @@ var MediaRendererClient = require('upnp-mediarenderer-client');
 export default class MyCasts {
     play(vedioUrl: string, TVurl: string, type: string) {
         var client = new MediaRendererClient(TVurl);
+        console.log(client);
+        
         // Load a stream with subtitles and play it immediately
         var options = {
             autoplay: true,

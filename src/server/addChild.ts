@@ -26,7 +26,7 @@ export default class MyChildProcess {
             }
 
         });
-        ipcMain.on('rtsp-rtmp-message', (event, arg: string[]) => {
+        ipcMain.on('dlna-message', (event, arg: string[]) => {
             let videoUrl = arg[0]
             let tvUrl = arg[1]
             let type = 'video/mp4'

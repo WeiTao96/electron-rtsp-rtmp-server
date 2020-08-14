@@ -33,7 +33,7 @@ export default class HelloWorld extends Vue {
   private messages: Message[] = [];
 
   private handleSend() {
-    ipcRenderer.send("rtsp-rtmp-message", [this.inputPath, this.outputPath]);
+    ipcRenderer.send("dlna-message", [this.inputPath, this.outputPath]);
 
     this.isOnWork = true;
 

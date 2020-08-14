@@ -4,8 +4,10 @@
       <el-tab-pane :label="item" :name="item" v-for="item in tabs" :key="item">
         <rtsp-to-rsmp ref="item"/>
       </el-tab-pane>
-      <!-- <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-      <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane> -->
+      <!-- <el-tab-pane label="角色管理">角色管理</el-tab-pane> -->
+      <el-tab-pane label="投屏">
+        <cast />
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -13,9 +15,12 @@
 <script lang="ts">
 import { Component, Prop, Vue  } from "vue-property-decorator";
 import rtspToRsmp from "@/components/rtspToRsmp.vue";
+import cast from "@/components/cast.vue"
+
 @Component({
   components: {
     rtspToRsmp,
+    cast
   },
 })
 export default class Home extends Vue {
