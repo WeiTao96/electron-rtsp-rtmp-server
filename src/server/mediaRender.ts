@@ -1,10 +1,12 @@
 var MediaRendererClient = require('upnp-mediarenderer-client');
+let Client = require('node-ssdp').Client
+let client = new Client();
 
 export default class MyCasts {
+    private device_description: string[] = []
     play(vedioUrl: string, TVurl: string, type: string) {
+
         var client = new MediaRendererClient(TVurl);
-        console.log(client);
-        
         // Load a stream with subtitles and play it immediately
         var options = {
             autoplay: true,
@@ -79,6 +81,20 @@ export default class MyCasts {
             // Fired when the user rewinds of fast-forwards the media from the remote
             console.log('speedChanged', speed);
         });
+    }
+    getDescription(TVurl: string) {
+        client.on('response', (headers: any, statusCode: any, rinfo: any) => {
+            console.log(headers.LOCATION);
+            this.device_description.push(headers.LOCATION)
+        });
+
+        // search for a service type
+        //   client.search('urn:schemas-upnp-org:service:ContentDirectory:1');
+
+        // Or get a list of all services on the network
+
+        client.search('ssdp:all');
+
     }
 }
 
