@@ -26,8 +26,8 @@ interface Message {
 
 @Component
 export default class HelloWorld extends Vue {
-  private inputPath = "";
-  private outputPath = "http://192.168.1.2";
+  private inputPath = "https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218093206z8V1JuPlpe.mp4";
+  private outputPath = "http://192.168.1.80";
   private flvOutputPath = "";
   private isOnWork = false;
   private messages: Message[] = [];
@@ -50,7 +50,7 @@ export default class HelloWorld extends Vue {
   }
   
   private handleClose() {
-    ipcRenderer.send("rtsp-rtmp-message", [this.inputPath, this.outputPath,'SIGKILL']);
+    // ipcRenderer.send("rtsp-rtmp-message", [this.inputPath, this.outputPath,'SIGKILL']);
     this.isOnWork = false;
   }
 }

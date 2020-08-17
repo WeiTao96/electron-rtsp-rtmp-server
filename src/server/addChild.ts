@@ -30,7 +30,7 @@ export default class MyChildProcess {
             let videoUrl = arg[0]
             let tvUrl = arg[1]
             let type = 'video/mp4'
-            myCast.play(videoUrl,tvUrl,type)
+            myCast.start(videoUrl,tvUrl,type)
         });
 
     }
