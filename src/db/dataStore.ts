@@ -24,4 +24,10 @@ if (!db.has('channels').value()) {
     db.set('channels', []).write()
 }
 
+if (!db.has('systemStting').value()) {
+    db.set('systemStting', {
+        openAtLogin: true
+    }).write()
+}
+
 export default db

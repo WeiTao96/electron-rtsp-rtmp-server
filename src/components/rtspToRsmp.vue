@@ -29,7 +29,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { ipcRenderer } from "electron";
-import dataStore from "../db/dataStore";
+import dataStore from "@/db/dataStore";
 
 interface Message {
   from: string;
@@ -38,7 +38,7 @@ interface Message {
 }
 
 @Component
-export default class HelloWorld extends Vue {
+export default class RtspToRsmp extends Vue {
   @Prop({ type: String, default: "" })
   channelId!: string;
 
@@ -87,8 +87,6 @@ export default class HelloWorld extends Vue {
         })
         .write();
     }
-
-    console.log(dataStore.get("channels").value());
 
     // receive message from main.js
     ipcRenderer.on("asynchronous-reply", (event, arg: Message) => {

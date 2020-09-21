@@ -14,6 +14,9 @@
       <el-tab-pane label="投屏">
         <cast />
       </el-tab-pane>
+      <el-tab-pane label="系统设置">
+        <systemSetting />
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -21,6 +24,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import rtspToRsmp from "@/components/rtspToRsmp.vue";
+import systemSetting from "@/components/setting.vue";
 import cast from "@/components/cast.vue";
 import dataStore from "@/db/dataStore";
 import { channel } from "@/types/index";
@@ -28,6 +32,7 @@ import { channel } from "@/types/index";
   components: {
     rtspToRsmp,
     cast,
+    systemSetting,
   },
 })
 export default class Home extends Vue {

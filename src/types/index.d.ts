@@ -3,3 +3,7 @@ export interface channel {
     inputPath: string;
     outputPath: string;
 }
+
+export interface systemSetting {
+    openAtLogin: boolean;   //在登录时启动应用
+}

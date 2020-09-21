@@ -25,7 +25,7 @@ interface Message {
 }
 
 @Component
-export default class HelloWorld extends Vue {
+export default class Cast extends Vue {
   private inputPath =
     "https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218093206z8V1JuPlpe.mp4";
   private outputPath = "http://192.168.1.80";
