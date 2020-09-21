@@ -1,8 +1,14 @@
 <template>
   <div class="form">
-    <el-tabs type="border-card" addable v-model="editableTabsValue" @edit="handleTabsEdit" style="height:100%">
-      <el-tab-pane :label="item" :name="item" v-for="item in tabs" :key="item">
-        <rtsp-to-rsmp ref="item"/>
+    <el-tabs
+      type="border-card"
+      addable
+      v-model="editableTabsValue"
+      @edit="handleTabsEdit"
+      style="height:100%"
+    >
+      <el-tab-pane :label="item.name" :name="item.name" v-for="item in tabs" :key="item.name">
+        <rtsp-to-rsmp ref="item" :channelId="item.id" />
       </el-tab-pane>
       <!-- <el-tab-pane label="角色管理">角色管理</el-tab-pane> -->
       <el-tab-pane label="投屏">
@@ -13,29 +19,47 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue  } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import rtspToRsmp from "@/components/rtspToRsmp.vue";
-import cast from "@/components/cast.vue"
-
+import cast from "@/components/cast.vue";
+import dataStore from "@/db/dataStore";
+import { channel } from "@/types/index";
 @Component({
   components: {
     rtspToRsmp,
-    cast
+    cast,
   },
 })
 export default class Home extends Vue {
-  private tabs = ["通道1"];
-  private editableTabsValue = '通道1'
+  private tabs = [
+    {
+      name: "通道1",
+      id: "",
+    },
+  ];
+  private editableTabsValue = "通道1";
+
+  created() {
+    const list = dataStore.get("channels").value();
+    list.forEach((item: channel) => {
+      this.tabs.push({
+        name: "通道" + (this.tabs.length + 1),
+        id: item.id,
+      });
+    });
+  }
 
   private handleTabsEdit(targetName: string, action: string) {
     if (action === "add") {
       console.log(targetName);
-      const newTab = "通道" + (this.tabs.length + 1)
-      this.tabs.push(newTab);
-      this.editableTabsValue = newTab
+      const newTab = "通道" + (this.tabs.length + 1);
+      this.tabs.push({
+        name: newTab,
+        id: "",
+      });
+      this.editableTabsValue = newTab;
     }
     if (action === "remove" && targetName) {
-      console.log((this.$refs[targetName] as any));
       // const index = this.tabs.findIndex((name)=>{
       //   return name === targetName
       // })

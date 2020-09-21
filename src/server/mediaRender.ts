@@ -1,13 +1,13 @@
-var MediaRendererClient = require('upnp-mediarenderer-client');
+let MediaRendererClient = require('upnp-mediarenderer-client');
 let Client = require('node-ssdp').Client
 let client = new Client();
 
 export default class MyCasts {
     private device_descriptions: string[] = []
-    private device_description_url:string|undefined = undefined
-    private vedioUrl:string = ''
-    private type:string = ''
-    private client:any = null
+    private device_description_url: string | undefined = undefined
+    private vedioUrl: string = ''
+    private type: string = ''
+    private client: any = null
 
 
     async start(vedioUrl: string, TVurl: string, type: string) {
@@ -15,7 +15,7 @@ export default class MyCasts {
         this.vedioUrl = vedioUrl
         this.type = type
         this.getDescription(TVurl)
-        
+
     }
 
     getDescription(TVurl: string) {
@@ -26,12 +26,12 @@ export default class MyCasts {
             this.device_descriptions.push(headers.LOCATION)
             let device_decription = headers.LOCATION
             let device_arr = device_decription.split('/')
-            let ip = device_arr[2].split(':')    
-                 
-            
+            let ip = device_arr[2].split(':')
+
+
             // console.log(tv_arr[2],ip[0]);
-               
-            if(tv_arr[2] === ip[0]){
+
+            if (tv_arr[2] === ip[0]) {
                 this.device_description_url = device_decription
                 this.setting()
             }
@@ -45,9 +45,9 @@ export default class MyCasts {
         client.search('ssdp:all');
     }
 
-    setting(){
-        if(this.client)return
-        
+    setting() {
+        if (this.client) return
+
         this.client = new MediaRendererClient(this.device_description_url);
         // Load a stream with subtitles and play it immediately
         var options = {

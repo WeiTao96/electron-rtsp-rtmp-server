@@ -26,6 +26,9 @@
       "scripthost"
     ]
   },
+  "rules": {
+    "no-var-requires": false
+  },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",

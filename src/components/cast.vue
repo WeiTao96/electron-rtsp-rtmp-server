@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import { ipcRenderer } from "electron";
 
 interface Message {
@@ -26,7 +26,8 @@ interface Message {
 
 @Component
 export default class HelloWorld extends Vue {
-  private inputPath = "https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218093206z8V1JuPlpe.mp4";
+  private inputPath =
+    "https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218093206z8V1JuPlpe.mp4";
   private outputPath = "http://192.168.1.80";
   private flvOutputPath = "";
   private isOnWork = false;
@@ -37,9 +38,8 @@ export default class HelloWorld extends Vue {
 
     this.isOnWork = true;
 
-
     // receive message from main.js
-    ipcRenderer.on('asynchronous-reply', (event, arg: Message) => {
+    ipcRenderer.on("asynchronous-reply", (event, arg: Message) => {
       if (arg.from === this.inputPath) {
         this.messages.push(arg);
       }
@@ -48,7 +48,7 @@ export default class HelloWorld extends Vue {
       }
     });
   }
-  
+
   private handleClose() {
     // ipcRenderer.send("rtsp-rtmp-message", [this.inputPath, this.outputPath,'SIGKILL']);
     this.isOnWork = false;
