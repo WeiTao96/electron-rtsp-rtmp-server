@@ -10,18 +10,20 @@ export default class MyChildProcess {
         ipcMain.on('rtsp-rtmp-message', (event, arg: string[]) => {
             let inputPath = arg[0]
             let outputPath = arg[1]
+            let id = arg[2]
 
-            if (this.childProcessLst[outputPath] && arg[2]) {
+            if (this.childProcessLst[outputPath] && arg[3]) {
                 this.childProcessLst[outputPath].kill('SIGKILL')
                 delete this.childProcessLst[outputPath]
-            } else if (this.childProcessLst[outputPath] && !arg[2]) {
-                event.sender.send('asynchronous-reply', { from: inputPath, type: 'error', message: '输出路径重复' })
+            } else if (this.childProcessLst[outputPath] && !arg[3]) {
+                event.sender.send('asynchronous-reply', { from: id, type: 'error', message: '输出路径重复' })
             } else {
-                let ffmeg = start(inputPath, outputPath, event)
-                if (ffmeg) {
-                    this.childProcessLst[outputPath] = ffmeg
+                let ffmpeg = start(inputPath, outputPath, id, event)
+                
+                if (ffmpeg) {
+                    this.childProcessLst[outputPath] = ffmpeg
                 } else {
-                    event.sender.send('asynchronous-reply', { from: inputPath, type: 'error', message: '创建失败' })
+                    event.sender.send('asynchronous-reply', { from: id, type: 'error', message: '创建失败' })
                 }
             }
 
@@ -44,22 +46,3 @@ export default class MyChildProcess {
         }
     }
 }
-// export function startChildProcess() {
-//     let childProcessLst: { [index: string]: child.ChildProcess }
-//     ipcMain.on('rtsp-rtmp-message', (event, arg: string[]) => {
-//         let inputPath = arg[0]
-//         let outputPath = arg[1]
-
-//         if (childProcessLst[outputPath]&&arg[2]) {
-//             childProcessLst[outputPath].kill()
-//         } else if(childProcessLst[outputPath]&&!arg[2]){
-//             event.sender.send(outputPath, { from: inputPath, type: 'error', message: '输出路径重复' })
-//         } else {
-//             childProcessLst[outputPath] = child.fork('./childProcess')
-//             childProcessLst[outputPath].send([inputPath,outputPath])
-//         }
-
-
-//         // send message to index.html
-//     });
-// }

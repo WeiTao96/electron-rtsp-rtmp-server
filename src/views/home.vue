@@ -2,19 +2,19 @@
   <div class="form">
     <el-tabs
       type="border-card"
-      addable
+      editable
       v-model="editableTabsValue"
       @edit="handleTabsEdit"
       style="height:100%"
     >
       <el-tab-pane :label="item.name" :name="item.name" v-for="item in tabs" :key="item.name">
-        <rtsp-to-rsmp ref="item" :channelId="item.id" />
+        <rtsp-to-rsmp ref="tabs" :channelId="item.id" />
       </el-tab-pane>
       <!-- <el-tab-pane label="角色管理">角色管理</el-tab-pane> -->
-      <el-tab-pane label="投屏">
+      <el-tab-pane label="投屏" name="投屏" :closable="false">
         <cast />
       </el-tab-pane>
-      <el-tab-pane label="系统设置">
+      <el-tab-pane label="系统设置" name="系统设置" :closable="false">
         <systemSetting />
       </el-tab-pane>
     </el-tabs>
@@ -56,7 +56,6 @@ export default class Home extends Vue {
 
   private handleTabsEdit(targetName: string, action: string) {
     if (action === "add") {
-      console.log(targetName);
       const newTab = "通道" + (this.tabs.length + 1);
       this.tabs.push({
         name: newTab,
@@ -65,10 +64,19 @@ export default class Home extends Vue {
       this.editableTabsValue = newTab;
     }
     if (action === "remove" && targetName) {
-      // const index = this.tabs.findIndex((name)=>{
-      //   return name === targetName
-      // })
-      // this.tabs.splice(index,1)
+      const domList = (this.$refs['tabs'] as rtspToRsmp[])
+
+      const index = this.tabs.findIndex((item)=>{
+        return item.name === targetName
+      })
+      domList[index].hanleCloseToParent()
+      this.tabs.splice(index,1)
+      if(this.tabs.length>0){
+        this.editableTabsValue = this.tabs[0].name
+      }else{
+        this.editableTabsValue = '系统设置'
+      }
+    
     }
   }
 }

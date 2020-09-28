@@ -61,8 +61,7 @@ export default class RtspToRsmp extends Vue {
   }
 
   private handleSend() {
-    ipcRenderer.send("rtsp-rtmp-message", [this.inputPath, this.outputPath]);
-
+    
     this.isOnWork = true;
 
     this.flvOutputPath =
@@ -79,21 +78,23 @@ export default class RtspToRsmp extends Vue {
         })
         .write();
     } else {
-      dataStore
+      const res =dataStore
         .get("channels")
         .insert({
           inputPath: this.inputPath,
           outputPath: this.outputPath,
         })
         .write();
+        this.channelId = res.id
     }
+    ipcRenderer.send("rtsp-rtmp-message", [this.inputPath, this.outputPath,this.channelId]);
 
     // receive message from main.js
     ipcRenderer.on("asynchronous-reply", (event, arg: Message) => {
-      if (arg.from === this.inputPath) {
+      if (arg.from === this.channelId) {
         this.messages.push(arg);
       }
-      if (arg.from === this.inputPath && arg.type === "error") {
+      if (arg.from === this.channelId && arg.type === "error") {
         this.isOnWork = false;
       }
     });
@@ -103,9 +104,18 @@ export default class RtspToRsmp extends Vue {
     ipcRenderer.send("rtsp-rtmp-message", [
       this.inputPath,
       this.outputPath,
+      this.channelId,
       "SIGKILL",
     ]);
+    const x = dataStore.get('channels')
+      .removeById(this.channelId)
+      .write()
+      
     this.isOnWork = false;
+  }
+
+  public hanleCloseToParent(){
+    this.handleClose()
   }
 }
 </script>

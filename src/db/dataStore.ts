@@ -2,7 +2,9 @@ import FileSync from 'lowdb/adapters/FileSync'
 import path from 'path'
 import fs from 'fs-extra'
 import { app, remote } from 'electron'
+//@ts-ignore
 const LodashId = require('lodash-id');
+//@ts-ignore
 const Datastore = require('lowdb')
 
 const APP = process.type === 'renderer' ? remote.app : app // 根据process.type来分辨在哪种模式使用哪种模块

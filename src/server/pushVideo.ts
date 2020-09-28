@@ -13,13 +13,15 @@ const flvtoolPath = path.join(__dirname, '../public/ffmpeg/bin/ffplay.exe').repl
 export interface option {
     inputPath: string;
     outputPath: string;
+    id:string;
     args?: string[]
 }
 
-export function start(inputPath: string, outputPath: string,event: Electron.IpcMainEvent) {
+export function start(inputPath: string, outputPath: string, id:string ,event: Electron.IpcMainEvent) {
     let option: option = {
         inputPath: inputPath,
         outputPath: outputPath,
+        id:id,
         args: [
             '-vcodec copy',
             '-acodec copy',
@@ -32,7 +34,7 @@ export function start(inputPath: string, outputPath: string,event: Electron.IpcM
 
     if (!option.inputPath || !option.outputPath) {
         // event.sender.send('asynchronous-reply', '数据不完整');
-        event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'error', message: '数据不完整' });
+        event.sender.send('asynchronous-reply', { from: option.id, type: 'error', message: '数据不完整' });
 
     } else {
         return startPushVideo(option,event)
@@ -65,9 +67,9 @@ function startPushVideo(option: option,event: Electron.IpcMainEvent) {
         //您的ffmpeg所在路径 -i inputOptions 您的拉流协议和路径 outputOptions 推送流协议和地址
         //ffmpeg -i "rtsp://yourPullUrl" -f flv -r 25 -s 640x480 -an "rtmp://yourPushUrl"
         // { from:option.inputPath,type:success,message:'' }
-        event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'success', message: '[' + getDateTime() + '] Vedio is Pushing !' });
-        event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'success', message: '[' + getDateTime() + '] Spawned Ffmpeg with command !' });
-        event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'success', message: '[' + getDateTime() + '] Command: ' + commandLine });
+        event.sender.send('asynchronous-reply', { from: option.id, type: 'success', message: '[' + getDateTime() + '] Vedio is Pushing !' });
+        event.sender.send('asynchronous-reply', { from: option.id, type: 'success', message: '[' + getDateTime() + '] Spawned Ffmpeg with command !' });
+        event.sender.send('asynchronous-reply', { from: option.id, type: 'success', message: '[' + getDateTime() + '] Command: ' + commandLine });
 
         // event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Vedio is Pushing !');
         // event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Spawned Ffmpeg with command !');
@@ -75,16 +77,16 @@ function startPushVideo(option: option,event: Electron.IpcMainEvent) {
 
     })
         .on('error', function (err, stdout, stderr) {
-            event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'error', message: 'error: ' + err.message });
-            event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'error', message: 'stdout: ' + stdout });
-            event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'error', message: 'stderr: ' + stderr });
+            event.sender.send('asynchronous-reply', { from: option.id, type: 'error', message: 'error: ' + err.message });
+            event.sender.send('asynchronous-reply', { from: option.id, type: 'error', message: 'stdout: ' + stdout });
+            event.sender.send('asynchronous-reply', { from: option.id, type: 'error', message: 'stderr: ' + stderr });
 
             // event.sender.send('asynchronous-reply', 'error: ' + err.message);
             // event.sender.send('asynchronous-reply', 'stdout: ' + stdout);
             // event.sender.send('asynchronous-reply', 'stderr: ' + stderr);
         })
         .on('end', function () {
-            event.sender.send('asynchronous-reply', { from: option.inputPath, type: 'error', message: '[' + getDateTime() + '] Vedio Pushing is Finished !' });
+            event.sender.send('asynchronous-reply', { from: option.id, type: 'error', message: '[' + getDateTime() + '] Vedio Pushing is Finished !' });
 
             // event.sender.send('asynchronous-reply', '[' + getDateTime() + '] Vedio Pushing is Finished !');
         })
