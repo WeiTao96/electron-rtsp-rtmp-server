@@ -1,6 +1,8 @@
 <template>
   <div>
     <el-checkbox v-model="systemSetting.openAtLogin" @change="handleSystemSettingChange">是否开机启动</el-checkbox>
+    <el-checkbox v-model="systemSetting.wsSub" @change="handleSystemSettingChange">是否启动 ws 订阅</el-checkbox>
+
   </div>
 </template>
 

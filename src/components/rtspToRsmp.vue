@@ -107,7 +107,7 @@ export default class RtspToRsmp extends Vue {
       this.channelId,
       "SIGKILL",
     ]);
-    const x = dataStore.get('channels')
+    dataStore.get('channels')
       .removeById(this.channelId)
       .write()
       

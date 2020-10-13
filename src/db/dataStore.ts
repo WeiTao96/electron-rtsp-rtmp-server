@@ -28,7 +28,8 @@ if (!db.has('channels').value()) {
 
 if (!db.has('systemStting').value()) {
     db.set('systemStting', {
-        openAtLogin: true
+        openAtLogin: true,
+        wsSub: false
     }).write()
 }
 
