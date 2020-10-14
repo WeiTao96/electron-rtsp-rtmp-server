@@ -94,7 +94,10 @@ class wsServer {
             {
                 browserBufferTimeout: 10000
             })
-        let url = req.query.url 
+        let url = req.query.url
+        if(req.query.starttime&&req.query.endtime){
+            url = req.query.url +  '?starttime=' + req.query.starttime + '&endtime=' + req.query.endtime
+        }
         console.log('rtsp url:', url)
         console.log('rtsp query:', req.query)
         //设置输入流地址
